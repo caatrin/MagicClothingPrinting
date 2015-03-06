@@ -12,17 +12,14 @@ target/
 *.db
 
 # STS #
-#.metadata
+# .metadata
 
 # Eclipse Core
 #.project
 
-# JDT-specific (Eclipse Java Development Tools)
-.classpath
-
-local.properties
-#.settings/
-.loadpath
+# local.properties
+# .settings/
+# .loadpath
 
 # External tool builders
 .externalToolBuilders/
@@ -34,10 +31,5 @@ local.properties
 .cproject
 
 # JDT-specific (Eclipse Java Development Tools)
-.classpath
+# .classpath
 
-# PDT-specific
-.buildpath
-
-# sbteclipse plugin
-.target
