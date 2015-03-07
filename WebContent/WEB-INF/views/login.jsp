@@ -9,24 +9,16 @@
 </head>
 <body>
 <h1>Log in</h1>
-<form:form modelAttribute="loginCustomer" action = "login">
+<form action = "customerOrder" method="post">
 	<fieldset>
 		<legend>Log in</legend>
 		<p>
 			<label for="email">Email: </label>
-			<form:input id="usernameEmail" path="email" type="text" />
-			
-			<div>
- 				<form:errors path="email" cssStyle="color : red;" /> 
- 			</div>
+			<input type="text" id="usernameEmail" name="email" />
 		</p>
 		<p>
 			<label for="password">password: </label>
-			<form:input id="password" path="password" type="text" />
-			
-			<div>
- 				<form:errors path="password" cssStyle="color : red;" /> 
- 			</div>
+			<input id="password" name="password" type="text" />
 		</p>
 		</fieldset>
 	
@@ -34,6 +26,6 @@
              <input id="submit" type="submit" value="Log in"  />
         </p>
 
-</form:form>
+</form>
 </body>
 </html>
