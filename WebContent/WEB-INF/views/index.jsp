@@ -10,11 +10,14 @@
 
 	<h1>Welcome to the Magic Clothing Printing</h1>
 
-	<form action="signup">
+	<form action="displaysignup">
 		<input type="submit" value="Sign up" />
 	</form>
 	<form action="login">
 		<input type="submit" value="Log in" />
+	</form>
+	<form action="displayPayment">
+		<input type="submit" value="payment" />
 	</form>
 	<form action="feedback">
 		<input type="submit" value="Feedback" />

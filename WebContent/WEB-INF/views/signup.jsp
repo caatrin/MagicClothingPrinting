@@ -8,13 +8,11 @@
 <title>Magic Printing Clothing</title>
 </head>
 <body>
-<h1>Signup</h1>
+<h1>Sign up with the best online printing service</h1>
 <form:form modelAttribute="newCustomer" action = "signup">
 	<fieldset>
 		<legend>Signup</legend>
-		<p>
-			<form:errors path="*" cssStyle="color : red;" />
-		</p>
+		
 		<p>
 			<label for="firstName">First Name: </label>
 			<form:input id="firstName" path="firstName" type="text" />
@@ -41,10 +39,10 @@
 		</p>
 		<p>
 			<label for="street">Street: </label>
-			<form:input id="Street" path="Street" type="text" />
+			<form:input id="street" path="street" type="text" />
 			
 			<div >
- 				<form:errors path="Street" cssStyle="color : red;" /> 
+ 				<form:errors path="street" cssStyle="color : red;" /> 
  			</div>
 		</p>
 		<p>

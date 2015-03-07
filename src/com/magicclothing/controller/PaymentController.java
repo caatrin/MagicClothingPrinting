@@ -2,36 +2,30 @@ package com.magicclothing.controller;
 
 import javax.validation.Valid;
 
-
-import org.springframework.validation.FieldError;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.magicclothing.domain.Customer;
+import com.magicclothing.domain.PaymentInfo;
 
 @Controller
-public class SignupController {
+public class PaymentController {
 	
-	@RequestMapping(value = "/displaysignup", method = RequestMethod.GET)
-	public String displaySignup( @ModelAttribute("newCustomer") Customer customer) {
-		return "signup";
+	@RequestMapping(value = "/displayPayment", method = RequestMethod.GET)
+	public String displaySignup( @ModelAttribute("newPayment") PaymentInfo paymentInfo) {
+		return "payment";
 	}
 	
-	@RequestMapping(value = "/signup")
-	public String getSignup(@Valid @ModelAttribute("newCustomer") Customer customer, BindingResult bindingResult,
+	@RequestMapping(value = "/payment", method = RequestMethod.POST)
+	public String getSignup(@Valid @ModelAttribute("newPayment") PaymentInfo paymentInfo, BindingResult bindingResult,
 			Model model) {
 		
 		if (bindingResult.hasErrors()) {
-			System.out.println("this is the if");
-			System.out.println(bindingResult.getFieldErrors().toString());
-			return "signup";
+			return "payment";
 		}
 		
 		 String[] suppressedFields = bindingResult.getSuppressedFields();
@@ -41,9 +35,9 @@ public class SignupController {
 		 }
 		
 		
-		// create customer
+		// Save payment
 		
-	    model.addAttribute("customer", customer);
+	    model.addAttribute("paymentInfo", paymentInfo);
 		
 		
 		return "index";
