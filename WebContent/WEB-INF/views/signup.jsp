@@ -13,20 +13,39 @@
 	<fieldset>
 		<legend>Signup</legend>
 		<p>
+			<form:errors path="*" cssStyle="color : red;" />
+		</p>
+		<p>
 			<label for="firstName">First Name: </label>
 			<form:input id="firstName" path="firstName" type="text" />
+			
+			<div>
+ 				<form:errors path="firstName" cssStyle="color : red;" /> 
+ 			</div>
 		</p>
 		<p>
 			<label for="lastName">Last Name: </label>
 			<form:input id="lastName" path="lastName" type="text" />
+			
+			<div>
+ 				<form:errors path="lastName" cssStyle="color : red;" /> 
+ 			</div>
 		</p>
 		<p>
 			<label for="email">email: </label>
 			<form:input id="email" path="email" type="text" />
+			
+			<div>
+ 				<form:errors path="email" cssStyle="color : red;" /> 
+ 			</div>
 		</p>
 		<p>
 			<label for="street">Street: </label>
 			<form:input id="Street" path="Street" type="text" />
+			
+			<div >
+ 				<form:errors path="Street" cssStyle="color : red;" /> 
+ 			</div>
 		</p>
 		<p>
 			<label for="city">City: </label>
@@ -39,24 +58,40 @@
 		<p>
 			<label for="zipcode">Zip Code: </label>
 			<form:input id="zipcode" path="zipcode" type="text" />
+			
+			<div>
+ 				<form:errors path="zipcode" cssStyle="color : red;" /> 
+ 			</div>
 		</p>
 		<p>
 			<label for="phoneNumber">Phone number: </label>
 			<form:input id="phoneNumber" path="phoneNumber" type="text" />
+			
+			<div>
+ 				<form:errors path="phoneNumber" cssStyle="color : red;" /> 
+ 			</div>
 		</p>
 		<p>
 			<label for="password">Password: </label>
 			<form:input id="password" path="password" type="text" />
+			
+			<div>
+ 				<form:errors path="password" cssStyle="color : red;" /> 
+ 			</div>
 		</p>		
 		<p>
 			<label for="confirmPassword">Confirm Password: </label>
 			<form:input id="confirmPassword" path="confirmPassword" type="text" />
+			
+			<div>
+ 				<form:errors path="confirmPassword" cssStyle="color : red;" /> 
+ 			</div>
 		</p>
 		
 	</fieldset>
 	
 	<p id="buttons">
-             <input id="submit" type="submit" value="Sign up" disabled="true" />
+             <input id="submit" type="submit" value="Sign up"  />
         </p>
 
 </form:form>

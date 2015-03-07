@@ -2,18 +2,31 @@ package com.magicclothing.domain;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class Customer implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
+	@NotEmpty
 	private String firstName;
+	@NotEmpty
 	private String lastName;
+	@NotEmpty
 	private String email;
+	@NotEmpty
 	private String street;
 	private String city;
 	private String state;
-	private int zipcode;
-	private int phoneNumber;
+	@NotNull
+	private Integer zipcode;
+	@NotNull
+	private Integer phoneNumber;
+	@NotEmpty
 	private String password;
+	@NotEmpty
 	private String confirmPassword;
 	
 	public Customer(){
@@ -21,8 +34,8 @@ public class Customer implements Serializable{
 	}
 	
 		public Customer(String firstName, String lastName, String email,
-			String street, String city, String state, int zipcode,
-			int phoneNumber, String password, String confirmPassword) {
+			String street, String city, String state, Integer zipcode,
+			Integer phoneNumber, String password, String confirmPassword) {
 		
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -75,16 +88,16 @@ public class Customer implements Serializable{
 	public void setState(String state) {
 		this.state = state;
 	}
-	public int getZipcode() {
+	public Integer getZipcode() {
 		return zipcode;
 	}
-	public void setZipcode(int zipcode) {
+	public void setZipcode(Integer zipcode) {
 		this.zipcode = zipcode;
 	}
-	public int getPhoneNumber() {
+	public Integer getPhoneNumber() {
 		return phoneNumber;
 	}
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(Integer phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 	public String getPassword() {

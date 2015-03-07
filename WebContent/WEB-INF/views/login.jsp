@@ -13,17 +13,25 @@
 	<fieldset>
 		<legend>Log in</legend>
 		<p>
-			<label for="username">Username: </label>
-			<form:input id="username" path="email" type="text" />
+			<label for="email">Email: </label>
+			<form:input id="usernameEmail" path="email" type="text" />
+			
+			<div>
+ 				<form:errors path="email" cssStyle="color : red;" /> 
+ 			</div>
 		</p>
 		<p>
 			<label for="password">password: </label>
 			<form:input id="password" path="password" type="text" />
+			
+			<div>
+ 				<form:errors path="password" cssStyle="color : red;" /> 
+ 			</div>
 		</p>
 		</fieldset>
 	
 	<p id="buttons">
-             <input id="submit" type="submit" value="Log in" disabled="true" />
+             <input id="submit" type="submit" value="Log in"  />
         </p>
 
 </form:form>
