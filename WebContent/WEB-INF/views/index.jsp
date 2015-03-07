@@ -13,6 +13,9 @@
 	<form action="signup">
 		<input type="submit" value="Sign up" />
 	</form>
+	<form action="login">
+		<input type="submit" value="Log in" />
+	</form>
 	<form action="feedback">
 		<input type="submit" value="Feedback" />
 	</form>
