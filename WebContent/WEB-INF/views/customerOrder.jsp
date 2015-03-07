@@ -15,7 +15,7 @@
 
 <div id="section">
 	<div id="items">
-			<form action="addItem">
+			<form action="addItem" method="post">
 				<p>
 					<label for="itemName">Item Name: </label><br>
 					<select id="itemName" name="itemName">
@@ -44,7 +44,7 @@
 	<div id="order">
 		<h3>Final Order</h3>
 		
-		<form action="addItems">
+		<form action="orderStatus" method="post">
 			<table class="table">
 				<tbody>
 					<tr>
