@@ -14,10 +14,5 @@ public class LoginController {
 		return "login";
 	}
 	
-	@RequestMapping(value = "/customerOrder", method = RequestMethod.POST)
-	public String loginIntoSystem(Model model) {	
-		return "customerOrder";
-	}
-
 }
 
