@@ -1,12 +1,16 @@
 package com.magicclothing.domain;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 
 public class Feedback {
 
 	
 	private String orderId;
 	private Integer rating;
+	@NotEmpty
 	private String positive;
+	@NotEmpty
 	private String negative;
 	
 	public Feedback() {
