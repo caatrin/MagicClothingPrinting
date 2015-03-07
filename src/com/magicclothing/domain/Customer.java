@@ -10,6 +10,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Customer implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
+	
+	private Integer customerId;
 	@NotEmpty
 	private String firstName;
 	@NotEmpty
@@ -33,10 +35,11 @@ public class Customer implements Serializable{
 		
 	}
 	
-		public Customer(String firstName, String lastName, String email,
+		public Customer(Integer customerId, String firstName, String lastName, String email,
 			String street, String city, String state, Integer zipcode,
 			Integer phoneNumber, String password, String confirmPassword) {
 		
+		this.customerId = customerId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
@@ -49,8 +52,13 @@ public class Customer implements Serializable{
 		this.confirmPassword = confirmPassword;
 		
 	}
-
-
+		
+	public Integer getCustomerId(){
+		return customerId;
+	}
+	public Integer setCustomerId(Integer customerId){
+		return customerId;
+	}
 
 	public String getFirstName() {
 		return firstName;
