@@ -15,6 +15,10 @@
 	<h2>We would like to hear your feedback!</h2>
 	
 	<form:form modelAttribute="newFeedback" action="giveFeedback">
+		<p>
+  		     <form:errors path="*" cssStyle="color : red;" /> 
+        </p>
+	
 		<p><label for="orderId">Order Id: </label>
 			<form:input id="orderId" path="orderId" type="text" value="orderId" />
 		</p>
@@ -26,14 +30,25 @@
         	<label><form:radiobutton path="rating" value="4"/> 4  </label>
         	<label><form:radiobutton path="rating" value="5"/> 5  </label>
         	
+        	<div style="text-align: center;">
+ 				<form:errors path="rating" cssStyle="color : red;" /> 
+ 			</div>
 		</p>
 		<p>
 			<label for="positive">Positive</label>
 			<form:textarea id="positive" path="positive"/>
+			
+			<div style="text-align: center;">
+ 				<form:errors path="positive" cssStyle="color : red;" /> 
+ 			</div>
 		</p>
 		<p>
 			<label for="negative">Negative</label>
         	<form:textarea id="negative" path="negative"/>
+        	
+        	<div style="text-align: center;">
+ 				<form:errors path="negative" cssStyle="color : red;" /> 
+ 			</div>
 		</p>
     	<p id="buttons">
         	<input id="submit" type="submit" value="Give Feedback">
