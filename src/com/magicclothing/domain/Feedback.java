@@ -1,5 +1,7 @@
 package com.magicclothing.domain;
 
+import javax.validation.constraints.NotNull;
+
 import org.hibernate.validator.constraints.NotEmpty;
 
 
@@ -7,6 +9,7 @@ public class Feedback {
 
 	
 	private String orderId;
+	@NotNull
 	private Integer rating;
 	@NotEmpty
 	private String positive;
