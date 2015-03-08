@@ -25,11 +25,11 @@
 	<form action="updateOrderStatus">
 		<input type="submit" value="Update Status" />
 	</form>
-	<form action="displayAdminOrder">
-		<input type="submit" value="Admin Orders" />
-	</form>
 	<form action="displayCustomerOrder">
 		<input type="submit" value="Customer Order History" />
+		</form>
+	<form action="displayAdminHistory">
+		<input type="submit" value="Admin Order History" />
 	</form>
 
 </body>

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class AdminOrderHistoryController {
 	
-	@RequestMapping(value = "/displayAdminOrder", method = RequestMethod.GET)
+	@RequestMapping(value = "/displayAdminHistory", method = RequestMethod.GET)
 	public String displayAdminOrderHistory() {
 		return "adminOrderHistory";
 	}
