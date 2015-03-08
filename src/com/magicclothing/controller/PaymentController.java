@@ -16,12 +16,12 @@ import com.magicclothing.domain.PaymentInfo;
 public class PaymentController {
 	
 	@RequestMapping(value = "/displayPayment", method = RequestMethod.GET)
-	public String displaySignup( @ModelAttribute("newPayment") PaymentInfo paymentInfo) {
+	public String displayPayment( @ModelAttribute("newPayment") PaymentInfo paymentInfo) {
 		return "payment";
 	}
 	
 	@RequestMapping(value = "/payment", method = RequestMethod.POST)
-	public String getSignup(@Valid @ModelAttribute("newPayment") PaymentInfo paymentInfo, BindingResult bindingResult,
+	public String getPayment(@Valid @ModelAttribute("newPayment") PaymentInfo paymentInfo, BindingResult bindingResult,
 			Model model) {
 		
 		if (bindingResult.hasErrors()) {
