@@ -23,7 +23,10 @@
 		<input type="submit" value="Feedback" />
 	</form>
 	<form action="displayAdminOrder">
-		<input type="submit" value="Admin Order" />
+		<input type="submit" value="Admin Orders" />
+	</form>
+	<form action="displayCustomerOrder">
+		<input type="submit" value="Customer Order History" />
 	</form>
 
 </body>
