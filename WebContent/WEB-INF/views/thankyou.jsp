@@ -12,7 +12,7 @@
 
 <h2>Our staff will contact you soon to confirm pick up!</h2>
 
-<a href="/MagicClothingPrinting/customerOrder">Go to Order Request</a>
+<a href="/MagicClothingPrinting/customerOrderHistory">Go to your Order History</a>
 
 </body>
 </html>

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.magicclothing.domain.Customer;
 import com.magicclothing.service.CustomerService;
 
-@Controller
+@Controller("/customer")
 public class SignupController {
 	
 	@Autowired

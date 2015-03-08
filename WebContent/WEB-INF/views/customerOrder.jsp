@@ -44,7 +44,7 @@
 	<div id="order">
 		<h3>Final Order</h3>
 		
-		<form action="orderStatus" method="post">
+		<form action="payment" method="post">
 			<table class="table">
 				<tbody>
 					<tr>

@@ -15,7 +15,6 @@ public class PaymentInfo implements Serializable{
 	private Double transactionAmount;
 	private Date transsactionDate;
 	
-//	private String customerName;
 //	private String orderId;
 //	private Integer total;
 	
@@ -29,7 +28,6 @@ public class PaymentInfo implements Serializable{
 		this.cardNumber = cardNumber;
 		this.transactionAmount = transactionAmount;
 		this.transsactionDate = transsactionDate;
-//		this.customerName = customerName;
 //		this.orderId = orderId;
 //		this.total = total;
 	}
@@ -74,13 +72,6 @@ public class PaymentInfo implements Serializable{
 		this.transsactionDate = transsactionDate;
 	}
 
-//	public String getCustomerName() {
-//		return customerName;
-//	}
-//
-//	public void setCustomerName(String customerName) {
-//		this.customerName = customerName;
-//	}
 //
 //	public String getOrderId() {
 //		return orderId;

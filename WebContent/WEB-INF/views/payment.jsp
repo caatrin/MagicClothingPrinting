@@ -9,14 +9,10 @@
 </head>
 <body>
 <h1>Order Payment</h1>
-<form action = "payment" method="post">
+<form action = "thankyou" method="post">
 	<fieldset>
 		<legend>Payment Information</legend>
 		<p>
-		</p>
-		<p>
-			<label for="customerName">Customer Name: </label>
-			<input name="customerName"  type="text" value="tester" readonly="true" />
 		</p>
 		<p>
 			<label for="orderId">Order Id: </label>

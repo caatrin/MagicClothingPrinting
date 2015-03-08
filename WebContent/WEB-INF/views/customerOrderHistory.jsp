@@ -12,11 +12,15 @@
 <caption>Orders</caption>
 <tr>
 	<th>Order Id</th>
-	<th>Total</th>	
+	<th>Total</th>
+	<th>Status</th>
+	<th>payment</th>	
 </tr>
 <tr>
 	<td>P001</td>
 	<td>160</td>
+	<td>Processing</td>
+	<td>payment</td>
 </tr>
 </table>
 <table>

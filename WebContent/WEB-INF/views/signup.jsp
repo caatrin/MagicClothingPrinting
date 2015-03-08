@@ -79,7 +79,7 @@
 		</p>		
 		<p>
 			<label for="confirmPassword">Confirm Password: </label>
-			<form:input id="confirmPassword" path="confirmPassword" type="text" />
+			<form:input id="confirmPassword" path="confirmPassword" type="password" />
 			
 			<div>
  				<form:errors path="confirmPassword" cssStyle="color : red;" /> 

@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class OrderStatusController {
+public class ThankYouController {
 	
 
 	@RequestMapping(value = "/orderStatus", method = RequestMethod.POST)
@@ -15,7 +15,7 @@ public class OrderStatusController {
 	
 	@RequestMapping(value = "/orderStatus", method = RequestMethod.GET)
 	public String displayStatus() {
-		return "orderStatus";
+		return "thankyou";
 	}
 	
 	
