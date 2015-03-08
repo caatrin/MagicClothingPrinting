@@ -18,7 +18,7 @@
 		</p>
 		<p>
 			<label for="password">password: </label>
-			<input id="password" name="password" type="text" />
+			<input id="password" name="password" type="password" />
 		</p>
 		</fieldset>
 	
