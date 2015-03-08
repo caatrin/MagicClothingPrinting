@@ -8,7 +8,7 @@ public class Order {
 	private Long orderId;
 	private List<Item> listItems;
 	private Integer totalPrice;
-	private Long paymentId;
+	private PaymentInfo paymentInfo;
 	private Long customerId;
 	private Integer itemUnits;
 	private String itemImage;
@@ -26,12 +26,6 @@ public class Order {
 	}
 	public void setTotalPrice(Integer totalPrice) {
 		this.totalPrice = totalPrice;
-	}
-	public Long getPaymentId() {
-		return paymentId;
-	}
-	public void setPaymentId(Long paymentId) {
-		this.paymentId = paymentId;
 	}
 	public Long getCustomerId() {
 		return customerId;
@@ -59,6 +53,12 @@ public class Order {
 	}
 	public Long getOrderId() {
 		return orderId;
+	}
+	public PaymentInfo getPaymentInfo() {
+		return paymentInfo;
+	}
+	public void setPaymentInfo(PaymentInfo paymentInfo) {
+		this.paymentInfo = paymentInfo;
 	}
 	
 	

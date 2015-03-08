@@ -8,7 +8,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Feedback {
 
 	
-	private String orderId;
+	private Order order;
 	@NotNull
 	private Integer rating;
 	@NotEmpty
@@ -20,18 +20,18 @@ public class Feedback {
 		
 	}
 	
-	public Feedback(String orderId, Integer rating, String positive,
+	public Feedback(Order order, Integer rating, String positive,
 			String negative) {
-		this.orderId = orderId;
+		this.order = order;
 		this.rating = rating;
 		this.positive = positive;
 		this.negative = negative;
 	}
-	public String getOrderId() {
-		return orderId;
+	public Order getOrder() {
+		return order;
 	}
-	public void setOrderId(String orderId) {
-		this.orderId = orderId;
+	public void setOrder(Order order) {
+		this.order = order;
 	}
 	public Integer getRating() {
 		return rating;
