@@ -22,6 +22,9 @@
 	<form action="feedback">
 		<input type="submit" value="Feedback" />
 	</form>
+	<form action="updateOrderStatus">
+		<input type="submit" value="Update Status" />
+	</form>
 
 </body>
 </html>
