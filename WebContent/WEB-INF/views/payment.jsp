@@ -13,7 +13,6 @@
 	<fieldset>
 		<legend>Payment Information</legend>
 		<p>
-			<form:errors path="*" cssStyle="color : red;" />
 		</p>
 		<p>
 			<label for="customerName">Customer Name: </label>
@@ -34,7 +33,7 @@
 		</p>
 		<p>
 			<label for="cardNumber">Card Number: </label>
-			<input name="cardNumber"  type="text" required />
+			<input name="cardNumber"  type="text" />
 		</p>		
 	</fieldset>
 	
