@@ -16,7 +16,7 @@
 </tr>
 <tr>
 	<td>P001</td>
-	<td>Luis</td>
+	<td>160</td>
 </tr>
 </table>
 <table>
@@ -31,6 +31,12 @@
 	<td>2</td>
 	<td>20</td>
 	<td>40</td>
+</tr>
+<tr>
+	<td>Pants</td>
+	<td>3</td>
+	<td>10</td>
+	<td>30</td>
 </tr>
 </table>
 </body>
