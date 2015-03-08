@@ -19,8 +19,8 @@
   		     <form:errors path="*" cssStyle="color : red;" /> 
         </p>
 	
-		<p><label for="orderId">Order Id: </label>
-			<form:input id="orderId" path="orderId" type="text" value="orderId" />
+		<p><label for="order">Order Id: </label>
+			<form:input id="order" path="order" type="text" value="orderId" />
 		</p>
 		<p>
 			<h4>Please rate our service:</h4> 
