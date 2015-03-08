@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Welcome</title>
+<title>Welcome to Magic Clothing Printing</title>
 </head>
 <body>
 
@@ -24,6 +24,12 @@
 	</form>
 	<form action="updateOrderStatus">
 		<input type="submit" value="Update Status" />
+	</form>
+	<form action="displayAdminOrder">
+		<input type="submit" value="Admin Orders" />
+	</form>
+	<form action="displayCustomerOrder">
+		<input type="submit" value="Customer Order History" />
 	</form>
 
 </body>
