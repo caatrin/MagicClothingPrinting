@@ -11,8 +11,8 @@ public class PaymentInfo implements Serializable{
 	@NotNull
 	private String paymentType;
 	@NotNull
-	private Integer cardNumber;
-	private Integer transactionAmount;
+	private Long cardNumber;
+	private Double transactionAmount;
 	private Date transsactionDate;
 	
 //	private String customerName;
@@ -22,7 +22,7 @@ public class PaymentInfo implements Serializable{
 	public PaymentInfo(){}
 	
 	public PaymentInfo(Integer paymentId, String paymentType,
-			Integer cardNumber, Integer transactionAmount, Date transsactionDate) {
+			Long cardNumber, Double transactionAmount, Date transsactionDate) {
 		
 		this.paymentId = paymentId;
 		this.paymentType = paymentType;
@@ -50,19 +50,19 @@ public class PaymentInfo implements Serializable{
 		this.paymentType = paymentType;
 	}
 
-	public Integer getCardNumber() {
+	public Long getCardNumber() {
 		return cardNumber;
 	}
 
-	public void setCardNumber(Integer cardNumber) {
+	public void setCardNumber(Long cardNumber) {
 		this.cardNumber = cardNumber;
 	}
 
-	public Integer getTransactionAmount() {
+	public Double getTransactionAmount() {
 		return transactionAmount;
 	}
 
-	public void setTransactionAmount(Integer transactionAmount) {
+	public void setTransactionAmount(Double transactionAmount) {
 		this.transactionAmount = transactionAmount;
 	}
 

@@ -2,8 +2,8 @@ package com.magicclothing.controller;
 
 import javax.validation.Valid;
 
-
 import org.springframework.validation.FieldError;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -15,9 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.magicclothing.domain.Customer;
+import com.magicclothing.service.CustomerService;
 
 @Controller
 public class SignupController {
+	
+	@Autowired
+	CustomerService customerService;
 	
 	@RequestMapping(value = "/displaysignup", method = RequestMethod.GET)
 	public String displaySignup( @ModelAttribute("newCustomer") Customer customer) {
@@ -29,8 +33,8 @@ public class SignupController {
 			Model model) {
 		
 		if (bindingResult.hasErrors()) {
-			System.out.println("this is the if");
-			System.out.println(bindingResult.getFieldErrors().toString());
+//			System.out.println("this is the if");
+//			System.out.println(bindingResult.getFieldErrors().toString());
 			return "signup";
 		}
 		
@@ -40,13 +44,17 @@ public class SignupController {
 		 + StringUtils.addStringToArray(suppressedFields, ", "));
 		 }
 		
-		
 		// create customer
+		customerService.save(customer);
+		for(Customer customerList:customerService.getAll() ){
+			System.out.println(customerList.getEmail());
+		}
+		
 		
 	    model.addAttribute("customer", customer);
 		
 		
-		return "index";
+		return "login";
 	}
 
 }

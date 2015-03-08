@@ -25,7 +25,7 @@ public class Customer implements Serializable{
 	@NotNull
 	private Integer zipcode;
 	@NotNull
-	private Integer phoneNumber;
+	private Long phoneNumber;
 	@NotEmpty
 	private String password;
 	@NotEmpty
@@ -37,7 +37,7 @@ public class Customer implements Serializable{
 	
 		public Customer(Integer customerId, String firstName, String lastName, String email,
 			String street, String city, String state, Integer zipcode,
-			Integer phoneNumber, String password, String confirmPassword) {
+			Long phoneNumber, String password, String confirmPassword) {
 		
 		this.customerId = customerId;
 		this.firstName = firstName;
@@ -102,10 +102,10 @@ public class Customer implements Serializable{
 	public void setZipcode(Integer zipcode) {
 		this.zipcode = zipcode;
 	}
-	public Integer getPhoneNumber() {
+	public Long getPhoneNumber() {
 		return phoneNumber;
 	}
-	public void setPhoneNumber(Integer phoneNumber) {
+	public void setPhoneNumber(Long phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 	public String getPassword() {
