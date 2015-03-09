@@ -8,6 +8,6 @@ public interface CustomerService {
 	
 	public List<Customer> getAll();
 	public void save(Customer customer);
-	public Customer findByName(String email);
+	public Customer findBy(String email);
 
 }

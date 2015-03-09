@@ -28,7 +28,7 @@ public class LoginController {
 	@RequestMapping(value = "/customerOrder", method = RequestMethod.POST)
 	public String loginIntoSystem(Customer loginCustomer, Model model, HttpServletRequest request) {
 		
-		Customer customer = customerService.findByName(loginCustomer.getEmail());
+		Customer customer = customerService.findBy(loginCustomer.getEmail());
 		
 		
 		if(customer == null || !customer.getPassword().equals(loginCustomer.getPassword())) {
@@ -40,7 +40,7 @@ public class LoginController {
 		model.addAttribute("valid", true);
 		model.addAttribute("email", customer.getEmail());
 		
-		return "redirect:/customerOrder";
+		return "customerOrder";
 	}
 	
 }

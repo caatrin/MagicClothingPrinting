@@ -8,6 +8,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Feedback {
 
 	
+	private Long feedbackId;
 	private Order order;
 	@NotNull
 	private Integer rating;

@@ -3,25 +3,28 @@ package com.magicclothing.domain;
 public class Item {
 	
 	private Long itemId;
-	private String itemName;
-	private Long pricePerUnit;
+	private String name;
+	private Double price;
 	
-	public String getItemName() {
-		return itemName;
+	public Item() {
+	
 	}
-	public void setItemName(String itemName) {
-		this.itemName = itemName;
+	
+	public String getName() {
+		return name;
 	}
-	public Long getPricePerUnit() {
-		return pricePerUnit;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public void setPricePerUnit(Long pricePerUnit) {
-		this.pricePerUnit = pricePerUnit;
+	public Double getPrice() {
+		return price;
+	}
+	public void setPrice(Double price) {
+		this.price = price;
 	}
 	public Long getItemId() {
 		return itemId;
 	}
-	
 	
 
 }

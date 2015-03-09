@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 
 public class PaymentInfo implements Serializable{
 	
-	private Integer paymentId;
+	private Long paymentId;
 	@NotNull
 	private String paymentType;
 	@NotNull
@@ -15,12 +15,13 @@ public class PaymentInfo implements Serializable{
 	private Double transactionAmount;
 	private Date transsactionDate;
 	
-//	private String orderId;
-//	private Integer total;
+	private Order order;
 	
-	public PaymentInfo(){}
+	public PaymentInfo(){
+		
+	}
 	
-	public PaymentInfo(Integer paymentId, String paymentType,
+	public PaymentInfo(Long paymentId, String paymentType,
 			Long cardNumber, Double transactionAmount, Date transsactionDate) {
 		
 		this.paymentId = paymentId;
@@ -32,11 +33,11 @@ public class PaymentInfo implements Serializable{
 //		this.total = total;
 	}
 
-	public Integer getPaymentId() {
+	public Long getPaymentId() {
 		return paymentId;
 	}
 
-	public void setPaymentId(Integer paymentId) {
+	public void setPaymentId(Long paymentId) {
 		this.paymentId = paymentId;
 	}
 

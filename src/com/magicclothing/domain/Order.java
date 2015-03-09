@@ -6,44 +6,30 @@ import java.util.List;
 public class Order {
 	
 	private Long orderId;
-	private List<Item> listItems;
-	private Integer totalPrice;
-	private PaymentInfo paymentInfo;
-	private Long customerId;
-	private Integer itemUnits;
-	private String itemImage;
+	private List<ItemOrder> listOfItemOrders;
+	private Customer customerId;
 	private Date date;
+	private String status;
 	
+	public Order() {
+		
+	}
 	
-	public List<Item> getListItems() {
-		return listItems;
+	public Long getOrderId() {
+		return orderId;
+	
 	}
-	public void setListItems(List<Item> listItems) {
-		this.listItems = listItems;
+	public List<ItemOrder> getListOfItemOrders() {
+		return listOfItemOrders;
 	}
-	public Integer getTotalPrice() {
-		return totalPrice;
+	public void setListOfItemOrders(List<ItemOrder> listOfItemOrders) {
+		this.listOfItemOrders = listOfItemOrders;
 	}
-	public void setTotalPrice(Integer totalPrice) {
-		this.totalPrice = totalPrice;
-	}
-	public Long getCustomerId() {
+	public Customer getCustomerId() {
 		return customerId;
 	}
-	public void setCustomerId(Long customerId) {
+	public void setCustomerId(Customer customerId) {
 		this.customerId = customerId;
-	}
-	public Integer getItemUnits() {
-		return itemUnits;
-	}
-	public void setItemUnits(Integer itemUnits) {
-		this.itemUnits = itemUnits;
-	}
-	public String getItemImage() {
-		return itemImage;
-	}
-	public void setItemImage(String itemImage) {
-		this.itemImage = itemImage;
 	}
 	public Date getDate() {
 		return date;
@@ -51,16 +37,14 @@ public class Order {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public Long getOrderId() {
-		return orderId;
+	public String getStatus() {
+		return status;
 	}
-	public PaymentInfo getPaymentInfo() {
-		return paymentInfo;
-	}
-	public void setPaymentInfo(PaymentInfo paymentInfo) {
-		this.paymentInfo = paymentInfo;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
+		
 	
 
 }

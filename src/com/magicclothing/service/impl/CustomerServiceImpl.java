@@ -27,7 +27,7 @@ public class CustomerServiceImpl implements CustomerService{
 	}
 
 	@Override
-	public Customer findByName(String email) {
+	public Customer findBy(String email) {
 		
 		List<Customer> listOfCustomer = customerRepository.getAll();
 		for(Customer customer: listOfCustomer){
