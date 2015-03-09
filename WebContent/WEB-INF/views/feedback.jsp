@@ -8,10 +8,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Feedback</title>
+<link rel="stylesheet" href=<c:url value="resources/css/magicclothing.css"/>>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/header.jsp"/>
 
-<div>
+<div id="section">
 	<h2>We would like to hear your feedback!</h2>
 	
 	<form:form modelAttribute="newFeedback" action="giveFeedback">
@@ -57,5 +59,6 @@
 	
 </div>
 
+<jsp:include page="/WEB-INF/views/footer.jsp"/>
 </body>
 </html>

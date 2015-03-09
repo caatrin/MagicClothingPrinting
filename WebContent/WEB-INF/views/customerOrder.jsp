@@ -7,12 +7,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Customer Order</title>
+<link rel="stylesheet" href=<c:url value="resources/css/magicclothing.css"/>>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/header.jsp"/>
 
-<div id="header">
-
-</div>
 
 <div id="section">
 	<div id="items">
@@ -76,5 +75,6 @@
 	</div>
 </div>
 
+<jsp:include page="/WEB-INF/views/footer.jsp"/>
 </body>
 </html>
