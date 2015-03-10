@@ -3,18 +3,31 @@ package com.magicclothing.domain;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
+@Entity
+@Table(schema="magicclothingprinting")
 public class PaymentInfo implements Serializable{
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long paymentId;
 	@NotNull
 	private String paymentType;
 	@NotNull
 	private Long cardNumber;
 	private Double transactionAmount;
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date transsactionDate;
-	
+	@OneToOne
 	private Order order;
 	
 	public PaymentInfo(){

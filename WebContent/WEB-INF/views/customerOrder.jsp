@@ -19,9 +19,10 @@
 				<p>
 					<label for="name">Item Name: </label><br>
 					<select id="name" name="name">
-						<option value="T-Shirt">T-Shirt</option>
-						<option value="Pants">Pants</option>
-						<option value="Sweater">Sweater</option>
+						<c:forEach var="item" items="${listOfItems}">
+							<option value="${item.name}">${item.name}</option>
+						</c:forEach>
+						
 					</select>
 				</p>
 				<p>

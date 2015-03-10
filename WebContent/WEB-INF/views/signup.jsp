@@ -52,11 +52,11 @@
 		</p>
 		<p>
 			<label for="city">City: </label>
-			<form:input id="city" path="city" type="text"  value="Fairfield" disabled="true"/>
+			<form:input id="city" path="city" type="text"  value="Fairfield" readonly="true"/>
 		</p>
 		<p>
 			<label for="state">State: </label>
-			<form:input id="state" path="state" type="text"  value="Iowa"  disabled="true"/>
+			<form:input id="state" path="state" type="text"  value="Iowa" readonly="true"/>
 		</p>
 		<p>
 			<label for="zipcode">Zip Code: </label>

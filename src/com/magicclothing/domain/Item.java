@@ -1,7 +1,17 @@
 package com.magicclothing.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(schema="magicclothingprinting")
 public class Item {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long itemId;
 	private String name;
 	private Double price;

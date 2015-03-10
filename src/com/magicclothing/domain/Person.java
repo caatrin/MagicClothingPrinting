@@ -1,7 +1,20 @@
 package com.magicclothing.domain;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+
+
+@Entity
+@Inheritance()
+@DiscriminatorColumn(name="personType")
 public class Person {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long personId;
 	private String firstName;
 	private String lastName;

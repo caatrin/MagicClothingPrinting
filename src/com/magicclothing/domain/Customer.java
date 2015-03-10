@@ -3,11 +3,17 @@ package com.magicclothing.domain;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+@Entity
+@DiscriminatorValue("Customer")
 public class Customer extends Person implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
@@ -22,6 +28,7 @@ public class Customer extends Person implements Serializable{
 	private Long phoneNumber;
 	@NotEmpty
 	private String confirmPassword;
+	@OneToMany(mappedBy="customer")
 	private List<Order> listOfOrders;
 	
 	public Customer(){

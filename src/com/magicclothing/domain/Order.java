@@ -3,11 +3,30 @@ package com.magicclothing.domain;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+@Table(schema="magicclothingprinting")
 public class Order {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long orderId;
+	@OneToMany
+	@JoinColumn(name="orderId")
 	private List<ItemOrder> listOfItemOrders;
-	private Customer customerId;
+	@OneToOne()
+	private Customer customer;
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date date;
 	private String status;
 	
@@ -25,11 +44,11 @@ public class Order {
 	public void setListOfItemOrders(List<ItemOrder> listOfItemOrders) {
 		this.listOfItemOrders = listOfItemOrders;
 	}
-	public Customer getCustomerId() {
-		return customerId;
+	public Customer getCustomer() {
+		return customer;
 	}
-	public void setCustomerId(Customer customerId) {
-		this.customerId = customerId;
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 	public Date getDate() {
 		return date;

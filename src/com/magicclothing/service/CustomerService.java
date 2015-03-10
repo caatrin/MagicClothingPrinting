@@ -9,5 +9,6 @@ public interface CustomerService {
 	public List<Customer> getAll();
 	public void save(Customer customer);
 	public Customer findBy(String email);
+	public Customer get(Long id);
 
 }
