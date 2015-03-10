@@ -1,8 +1,20 @@
 package com.magicclothing.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(schema="magicclothingprinting")
 public class ItemOrder {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long itemOrderId;
+	@OneToOne
 	private Item item;
 	private Integer units;
 	private String image;

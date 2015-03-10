@@ -4,12 +4,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.magicclothing.domain.Customer;
 import com.magicclothing.repository.CustomerRepository;
 import com.magicclothing.service.CustomerService;
 
 @Service
+@Transactional
 public class CustomerServiceImpl implements CustomerService{
 	
 	@Autowired
@@ -17,7 +19,7 @@ public class CustomerServiceImpl implements CustomerService{
 
 	@Override
 	public List<Customer> getAll() {
-		return customerRepository.getAll();
+		return customerRepository.getAllCustomers();
 	}
 
 	@Override
@@ -28,15 +30,12 @@ public class CustomerServiceImpl implements CustomerService{
 
 	@Override
 	public Customer findBy(String email) {
-		
-		List<Customer> listOfCustomer = customerRepository.getAll();
-		for(Customer customer: listOfCustomer){
-			if(customer.getEmail().equals(email)){
-				return customer;
-			}
-		}
-		
-		return null;
+		return customerRepository.getCustomerByEmail(email);
+	}
+
+	@Override
+	public Customer get(Long id) {
+		return customerRepository.findOne(id);
 	}
 
 }
