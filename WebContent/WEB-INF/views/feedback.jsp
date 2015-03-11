@@ -16,21 +16,21 @@
 <div id="section">
 	<h2>We would like to hear your feedback!</h2>
 	
-	<form:form modelAttribute="newFeedback" action="giveFeedback">
+	<form:form modelAttribute="newFeedback" action="giveFeedback" class="feedbackFormCss">
 		<p>
   		     <form:errors path="*" cssStyle="color : red;" /> 
         </p>
 	
 		<p><label for="order">Order Id: </label>
-			<form:input id="order" path="order" type="text" value="orderId" />
+			<form:input id="order" path="order" type="text" value="orderId" class="feedbackPropertyOrderId" />
 		</p>
 		<p>
 			<h4>Please rate our service:</h4> 
-			<label><form:radiobutton path="rating" value="1"/> 1  </label>
-       		<label><form:radiobutton path="rating" value="2"/> 2  </label>
-        	<label><form:radiobutton path="rating" value="3"/> 3  </label>
-        	<label><form:radiobutton path="rating" value="4"/> 4  </label>
-        	<label><form:radiobutton path="rating" value="5"/> 5  </label>
+			<label class="feedbackratingCss"><form:radiobutton path="rating" value="1"/> 1  </label>
+       		<label class="feedbackratingCss"><form:radiobutton path="rating" value="2"/> 2  </label>
+        	<label class="feedbackratingCss"><form:radiobutton path="rating" value="3"/> 3  </label>
+        	<label class="feedbackratingCss"><form:radiobutton path="rating" value="4"/> 4  </label>
+        	<label class="feedbackratingCss"><form:radiobutton path="rating" value="5"/> 5  </label>
         	
         	<div style="text-align: center;">
  				<form:errors path="rating" cssStyle="color : red;" /> 
@@ -38,7 +38,7 @@
 		</p>
 		<p>
 			<label for="positive">Positive</label>
-			<form:textarea id="positive" path="positive"/>
+			<form:textarea id="positive" path="positive" class="feedbackPropertyPositive"/>
 			
 			<div style="text-align: center;">
  				<form:errors path="positive" cssStyle="color : red;" /> 
@@ -46,14 +46,14 @@
 		</p>
 		<p>
 			<label for="negative">Negative</label>
-        	<form:textarea id="negative" path="negative"/>
+        	<form:textarea id="negative" path="negative" class="feedbackPropertyNegative"/>
         	
         	<div style="text-align: center;">
  				<form:errors path="negative" cssStyle="color : red;" /> 
  			</div>
 		</p>
     	<p id="buttons">
-        	<input id="submit" type="submit" value="Give Feedback">
+        	<input id="feedbackBtn" type="submit" value="Give Feedback">
         </p>
 	</form:form>
 	

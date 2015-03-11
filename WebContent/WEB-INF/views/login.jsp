@@ -14,21 +14,21 @@
 
 <div id="section">
 <h1>Log in</h1>
-<form action = "customerOrder" method="post">
+<form action = "customerOrder" method="post" class="loginFormCss">
 	<fieldset>
 		<legend>Log in</legend>
 		<p>
 			<label for="email">Email: </label>
-			<input type="text" id="usernameEmail" name="email" />
+			<input type="text" id="usernameEmail" name="email" class="loginpropertyEmail"/>
 		</p>
 		<p>
 			<label for="password">password: </label>
-			<input id="password" name="password" type="password" />
+			<input id="password" name="password" type="password" class="loginpropertyPassword"/>
 		</p>
 		</fieldset>
 	
 	<p id="buttons">
-             <input id="submit" type="submit" value="Log in"  />
+             <input id="loginBtn" type="submit" value="Log in"  />
         </p>
 
 </form>

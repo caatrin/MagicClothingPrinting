@@ -11,15 +11,15 @@
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"/>
 
-<div id="section">
-	<h1>Welcome to the Magic Clothing Printing</h1>
+<div id="indexSection">
 
-	<form action="displaysignup">
-		<input type="submit" value="Sign up" />
+	<form action="displaysignup" class="indexMarginTop">
+		<input type="submit" value="Sign up"  class="loginBtnClass"/>
 	</form>
-	<form action="login">
-		<input type="submit" value="Log in" />
+	<form action="login" class="indexMarginTop">
+		<input type="submit" value="Log in" class="loginBtnClass"/>
 	</form>
+	<!-- to be deleted -->
 	<form action="displayPayment">
 		<input type="submit" value="payment" />
 	</form>
@@ -36,6 +36,7 @@
 		<input type="submit" value="Admin Order History" />
 	</form>
 </div>
+<h1 id="mainHead">Welcome to the Magic Clothing Printing</h1>
 	
 <jsp:include page="/WEB-INF/views/footer.jsp"/>
 </body>

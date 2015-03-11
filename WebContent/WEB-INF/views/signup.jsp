@@ -14,13 +14,13 @@
 
 <div id="section">
 <h1>Sign up with the best online printing service</h1>
-<form:form modelAttribute="newCustomer" action = "signup">
+<form:form modelAttribute="newCustomer" action = "signup" class="signUpFormCss">
 	<fieldset>
 		<legend>Signup</legend>
 		
 		<p>
 			<label for="firstName">First Name: </label>
-			<form:input id="firstName" path="firstName" type="text" />
+			<form:input id="firstName" path="firstName" type="text"  class="propertyClassFname"/>
 			
 			<div>
  				<form:errors path="firstName" cssStyle="color : red;" /> 
@@ -28,15 +28,15 @@
 		</p>
 		<p>
 			<label for="lastName">Last Name: </label>
-			<form:input id="lastName" path="lastName" type="text" />
+			<form:input id="lastName" path="lastName" type="text" class="propertyClassLname"/>
 			
 			<div>
- 				<form:errors path="lastName" cssStyle="color : red;" /> 
+ 				<form:errors path="lastName" cssStyle="color : red;"  /> 
  			</div>
 		</p>
 		<p>
 			<label for="email">email: </label>
-			<form:input id="email" path="email" type="text" />
+			<form:input id="email" path="email" type="text"  class="propertyClassEmail"/>
 			
 			<div>
  				<form:errors path="email" cssStyle="color : red;" /> 
@@ -44,7 +44,7 @@
 		</p>
 		<p>
 			<label for="street">Street: </label>
-			<form:input id="street" path="street" type="text" />
+			<form:input id="street" path="street" type="text" class="propertyClassStreet"/>
 			
 			<div >
  				<form:errors path="street" cssStyle="color : red;" /> 
@@ -52,15 +52,15 @@
 		</p>
 		<p>
 			<label for="city">City: </label>
-			<form:input id="city" path="city" type="text"  value="Fairfield" readonly="true"/>
+			<form:input id="city" path="city" type="text"  value="Fairfield" readonly="true" class="propertyClassCity"/>
 		</p>
 		<p>
 			<label for="state">State: </label>
-			<form:input id="state" path="state" type="text"  value="Iowa" readonly="true"/>
+			<form:input id="state" path="state" type="text"  value="Iowa" readonly="true" class="propertyClassState"/>
 		</p>
 		<p>
 			<label for="zipcode">Zip Code: </label>
-			<form:input id="zipcode" path="zipcode" type="text" />
+			<form:input id="zipcode" path="zipcode" type="text" class="propertyClassZip"/>
 			
 			<div>
  				<form:errors path="zipcode" cssStyle="color : red;" /> 
@@ -68,7 +68,7 @@
 		</p>
 		<p>
 			<label for="phoneNumber">Phone number: </label>
-			<form:input id="phoneNumber" path="phoneNumber" type="text" />
+			<form:input id="phoneNumber" path="phoneNumber" type="text" class="propertyClasspNo"/>
 			
 			<div>
  				<form:errors path="phoneNumber" cssStyle="color : red;" /> 
@@ -76,7 +76,7 @@
 		</p>
 		<p>
 			<label for="password">Password: </label>
-			<form:input id="password" path="password" type="password" />
+			<form:input id="password" path="password" type="password" class="propertyClassPass"/>
 			
 			<div>
  				<form:errors path="password" cssStyle="color : red;" /> 
@@ -84,7 +84,7 @@
 		</p>		
 		<p>
 			<label for="confirmPassword">Confirm Password: </label>
-			<form:input id="confirmPassword" path="confirmPassword" type="password" />
+			<form:input id="confirmPassword" path="confirmPassword" type="password" class="propertyClassCpass"/>
 			
 			<div>
  				<form:errors path="confirmPassword" cssStyle="color : red;" /> 
@@ -94,7 +94,7 @@
 	</fieldset>
 	
 	<p id="buttons">
-             <input id="submit" type="submit" value="Sign up"  />
+             <input id="signupBtn" type="submit" value="Sign up"  />
         </p>
 
 </form:form>
