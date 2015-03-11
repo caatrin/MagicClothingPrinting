@@ -6,14 +6,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.magicclothing.domain.Item;
+import com.magicclothing.domain.Payment;
 
 @Repository
-public interface ItemRepository extends CrudRepository<Item, Long> {
+public interface PaymentRepository extends CrudRepository<Payment, Long>{
 	
-	@Query("SELECT i FROM Item i")
-	public List<Item> getAllItems();
-	
-	public Item getItemByName(String name);
+	@Query("SELECT p FROM Payment p")
+	public List<Payment> getAllPayments();
 
 }

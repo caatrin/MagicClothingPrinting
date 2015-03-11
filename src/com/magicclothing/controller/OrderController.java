@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.magicclothing.domain.Item;
 import com.magicclothing.domain.ItemOrder;
+import com.magicclothing.service.ItemOrderService;
 import com.magicclothing.service.ItemService;
 
 @Controller
@@ -22,7 +23,9 @@ public class OrderController {
 	@Autowired
 	ItemService itemService;
 	
-	private List<ItemOrder> listOfItemsOrder = new ArrayList();
+	@Autowired
+	ItemOrderService itemOrderService;
+	
 	
 	@RequestMapping(value = "/customerOrder", method = RequestMethod.GET)
 	public String getCustomerOrder() {
@@ -31,21 +34,16 @@ public class OrderController {
 	
 	@RequestMapping(value = "/addItemOrder", method = RequestMethod.POST)
 	public String addItemOrder(ItemOrder itemOrder, Model model) {
-		
-		
+		System.out.println("I am in add order");
 		itemOrder.setTotalPrice(itemOrder.getUnits() * itemOrder.getItem().getPrice());
-		
-		listOfItemsOrder.add(itemOrder);
-		
-		
-		model.addAttribute("listOfItemOrders", listOfItemsOrder);
-		
+		itemOrderService.save(itemOrder);
+		model.addAttribute("listOfItemOrders", itemOrderService.getAll());
 		return "redirect:/customerOrder";
 	}
 	
-	@RequestMapping(value = "/getItem" ,method = RequestMethod.POST)
-	public @ResponseBody Item getItem(@RequestParam String name){
-		return itemService.findBy(name);
+	@RequestMapping(value = "/getItem" ,method = RequestMethod.GET)
+	public @ResponseBody Item getItem(){
+		return itemService.findBy("Pants");
 	}
 	
 	

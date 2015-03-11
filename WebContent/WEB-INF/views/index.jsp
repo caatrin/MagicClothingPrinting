@@ -20,21 +20,6 @@
 	<form action="login">
 		<input type="submit" value="Log in" />
 	</form>
-	<form action="displayPayment">
-		<input type="submit" value="payment" />
-	</form>
-	<form action="feedback">
-		<input type="submit" value="Feedback" />
-	</form>
-	<form action="updateOrderStatus">
-		<input type="submit" value="Update Status" />
-	</form>
-	<form action="displayCustomerOrder">
-		<input type="submit" value="Customer Order History" />
-		</form>
-	<form action="displayAdminHistory">
-		<input type="submit" value="Admin Order History" />
-	</form>
 </div>
 	
 <jsp:include page="/WEB-INF/views/footer.jsp"/>

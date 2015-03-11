@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(schema="magicclothingprinting")
-public class PaymentInfo implements Serializable{
+public class Payment implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -30,11 +30,11 @@ public class PaymentInfo implements Serializable{
 	@OneToOne
 	private Order order;
 	
-	public PaymentInfo(){
+	public Payment(){
 		
 	}
 	
-	public PaymentInfo(Long paymentId, String paymentType,
+	public Payment(Long paymentId, String paymentType,
 			Long cardNumber, Double transactionAmount, Date transsactionDate) {
 		
 		this.paymentId = paymentId;

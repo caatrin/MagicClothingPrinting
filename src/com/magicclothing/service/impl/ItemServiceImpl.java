@@ -1,5 +1,7 @@
 package com.magicclothing.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,6 +20,11 @@ public class ItemServiceImpl implements ItemService {
 	@Override
 	public Item findBy(String name) {
 		return itemRepository.getItemByName(name);
+	}
+
+	@Override
+	public List<Item> getAll() {
+		return itemRepository.getAllItems();
 	}
 
 }

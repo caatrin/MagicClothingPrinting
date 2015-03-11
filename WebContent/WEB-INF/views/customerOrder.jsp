@@ -8,17 +8,26 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Customer Order</title>
 <link rel="stylesheet" href=<c:url value="resources/css/magicclothing.css"/>>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="<c:url value="resources/js/exp.js"/>"></script>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"/>
 
 
 <div id="section">
+
+	<div id="orderHistory">
+		<form action="displayCustomerOrder">
+		<input type="submit" value="Customer Order History" />
+		</form>
+	</div>
+	
 	<div id="items">
 			<form action="addItemOrder" method="post">
 				<p>
 					<label for="name">Item Name: </label><br>
-					<select id="name" name="name">
+					<select id="name" name="item">
 						<c:forEach var="item" items="${listOfItems}">
 							<option value="${item.name}">${item.name}</option>
 						</c:forEach>
@@ -27,14 +36,16 @@
 				</p>
 				<p>
 					<label for="price">Price per Unit: </label>
-					<input id="price" name="price" type="text"
- 						value="20" readonly="" />
+					<input id="price" name="price" type="text" readonly="" />
+				</p>
+				<p>
+					<label for="image">Image: </label>
+					<input id="image" name="image" type="text"/>
 				</p>
 
 				<p>
 					<label for="units">Select Units: </label>
-					<input id="units" name="units" type="text"
- 						value="2" />
+					<input id="units" name="units" type="text"/>
 				</p>
 				<p id="buttons">
 					<input id="addItem" type="submit" value="Add Item">
