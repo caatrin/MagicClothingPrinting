@@ -14,18 +14,18 @@
 
 <div id="section">
 <h1>Order Payment</h1>
-<form action = "thankyou" method="post">
+<form action = "thankyou" method="post" class="paymentFormCss">
 	<fieldset>
 		<legend>Payment Information</legend>
 		<p>
 		</p>
 		<p>
 			<label for="orderId">Order Id: </label>
-			<input name="orderId"  type="text" value="P876" readonly="true" />
+			<input name="orderId"  type="text" value="P876" readonly="true" class="paymentPropertyOrderId"/>
 		</p>
 		<p>
 			<label for="total">Total: </label>
-			<input name="total" type="text"  value="1650" readonly="true"/>
+			<input name="total" type="text"  value="1650" readonly="true" class="paymentPropertyTotal"/>
 		</p>
 		<p>
 			<label for="paymentType">Payment Type: </label>
@@ -34,12 +34,20 @@
 		</p>
 		<p>
 			<label for="cardNumber">Card Number: </label>
-			<input name="cardNumber"  type="text" />
-		</p>		
+			<input name="cardNumber"  type="text" class="paymentPropertyCardNumber"/>
+		</p>
+		<p>
+			<label for="expirationDate">Expiration Date: </label>
+			<input name="expirationDate"  type="text" class="paymentPropertyExpirationDate"/>
+		</p>	
+		<p>
+			<label for="securityNumber">security number: </label>
+			<input name="securityNumber"  type="text" class="paymentPropertySecurityNumber"/>
+		</p>	
 	</fieldset>
 	
 	<p id="buttons">
-             <input id="submit" type="submit" value="Pay!"  />
+             <input id="paymentBtn" type="submit" value="Pay!"  />
         </p>
 </form>
 </div>

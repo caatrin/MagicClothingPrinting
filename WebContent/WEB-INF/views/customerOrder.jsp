@@ -28,7 +28,7 @@
 				<p>
 					<label for="price">Price per Unit: </label>
 					<input id="price" name="price" type="text"
- 						value="20" readonly="" />
+ 						value="20" readonly="true" />
 				</p>
 
 				<p>
@@ -36,6 +36,13 @@
 					<input id="units" name="units" type="text"
  						value="2" />
 				</p>
+				
+				<p>
+					<label for="image">Upload Image: </label>
+					<input id="image" name="image" type="text"
+ 						value="2" />
+				</p>
+				
 				<p id="buttons">
 					<input id="addItem" type="submit" value="Add Item">
 				</p>

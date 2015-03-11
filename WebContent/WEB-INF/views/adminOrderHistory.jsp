@@ -21,18 +21,13 @@
 	<th>email</th>
 	<th>Status</th>
 	<th>Action</th>
-	<th>status</th>
-	<th>action</th>
 </tr>
 <tr>
 	<td>P001</td>
 	<td>Luis</td>
 	<td>Luis@Luis</td>
-	<td>New</td>
-	<td>Edit</td>
-	<td>Luis@Luis.com</td>
-	<td>New</td>
-	<td>edit</td>
+	<td>Pending</td>
+	<td>Payment</td>
 </tr>
 </table>
 </div>
