@@ -6,14 +6,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.magicclothing.domain.Item;
+import com.magicclothing.domain.Feedback;
 
 @Repository
-public interface ItemRepository extends CrudRepository<Item, Long> {
+public interface FeedbackRepository extends CrudRepository<Feedback, Long> {
 	
-	@Query("SELECT i FROM Item i")
-	public List<Item> getAllItems();
-	
-	public Item getItemByName(String name);
+	@Query("SELECT f FROM Feedback f")
+	public List<Feedback> getAllFeedbacks();
 
 }

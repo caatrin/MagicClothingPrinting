@@ -19,8 +19,9 @@
 	<form action="login" class="indexMarginTop">
 		<input type="submit" value="Log in" class="loginBtnClass"/>
 	</form>
+<<<<<<< HEAD
 	<!-- to be deleted -->
-		<form action="displayPayment">
+	<form action="displayPayment">
 		<input type="submit" value="payment" />
 	</form>
 	<form action="feedback">
@@ -35,6 +36,8 @@
 	<form action="displayAdminHistory">
 		<input type="submit" value="Admin Order History" />
 	</form>
+=======
+>>>>>>> kate_marcela_03_10_15v1
 </div>
 <h1 id="mainHead">Welcome to the Magic Clothing Printing</h1>
 	

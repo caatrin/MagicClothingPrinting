@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class ThankYouController {
 	
 
-	@RequestMapping(value = "/orderStatus", method = RequestMethod.POST)
+	@RequestMapping(value = "/thankyou", method = RequestMethod.POST)
 	public String addItems() {
-		return "redirect:/orderStatus";
+		return "redirect:/thankyou";
 	}
 	
-	@RequestMapping(value = "/orderStatus", method = RequestMethod.GET)
+	@RequestMapping(value = "/thankyou", method = RequestMethod.GET)
 	public String displayStatus() {
 		return "thankyou";
 	}

@@ -10,18 +10,18 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.magicclothing.domain.PaymentInfo;
+import com.magicclothing.domain.Payment;
 
 @Controller
 public class PaymentController {
 	
 	@RequestMapping(value = "/displayPayment", method = RequestMethod.GET)
-	public String displayPayment( @ModelAttribute("newPayment") PaymentInfo paymentInfo) {
+	public String displayPayment( @ModelAttribute("newPayment") Payment paymentInfo) {
 		return "payment";
 	}
 	
 	@RequestMapping(value = "/payment", method = RequestMethod.POST)
-	public String getPayment(@Valid @ModelAttribute("newPayment") PaymentInfo paymentInfo, BindingResult bindingResult,
+	public String getPayment(@Valid @ModelAttribute("newPayment") Payment paymentInfo, BindingResult bindingResult,
 			Model model) {
 		
 		if (bindingResult.hasErrors()) {
@@ -40,7 +40,7 @@ public class PaymentController {
 	    model.addAttribute("paymentInfo", paymentInfo);
 		
 		
-		return "index";
+		return "thankyou";
 	}
 
 }
