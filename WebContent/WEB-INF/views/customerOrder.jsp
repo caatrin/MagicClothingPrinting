@@ -24,54 +24,51 @@
 	</div>
 	
 	<div id="items">
-			<form action="addItemOrder" method="post">
+			<form:form action="addItemOrder" method="post" modelAttribute="itemOrder">
 				<p>
-					<label for="name">Item Name: </label><br>
-					<select id="name" name="item">
-						<c:forEach var="item" items="${listOfItems}">
-							<option value="${item.name}">${item.name}</option>
-						</c:forEach>
+					<label for="name">Select Item: </label>
+					
+				
+					<form:select id="name" name="item" path="item.name">
+						<form:option value="select" >Please select item</form:option>
+						<form:options items="${listOfItems}" itemLabel="name" itemValue= "name"/>
+<%-- 						<c:forEach var="item" items="${listOfItems}"> --%>
+<%-- 							<form:options value="${item.name}">${item.name}</form:options> --%>
+<%-- 						</c:forEach> --%>
 						
-					</select>
+					</form:select>
 				</p>
 				<p>
 					<label for="price">Price per Unit: </label>
-					<input id="price" type="text" readonly="" />
-				</p>
-				<p>
-					<label for="image">Image: </label>
-					<input id="image" name="image" type="text"/>
+					<form:input id="price" type="text" readonly="true" path="item.price" />
 				</p>
 				<p>
 					<label for="units">Select Units: </label>
-					<input id="units" name="units" type="text"/>
+					<form:input id="units" name="units" type="text" path="units"/>
 				</p>
 				<p>
 					<label for="totalPrice">Total Price: </label>
-					<input id="totalPrice" name="totalPrice" type="text" readonly="" />
+					<form:input id="totalPrice" name="totalPrice" type="text" path="totalPrice" readonly="true" />
 				</p>
-				
 				<p>
 					<label for="image">Upload Image: </label>
-					<input id="image" name="image" type="text"
- 						value="2" />
+					<form:input id="image" name="image" type="text" path="image"/>
 				</p>
 				
 				<p id="buttons">
 					<input id="addItem" type="submit" value="Add Item">
 				</p>
-			</form>
+			</form:form>
 		</div>
 	
 	<div id="order">
 		<h3>Final Order</h3>
-		
-		<form action="payment" method="post">
-			<table class="table">
+		<table class="table">
 				<tbody>
 					<tr>
 						<th>Items</th>
 						<th>Units</th>
+						<th>Image</th>
 						<th>Total Price</th>
 						<th>Options</th>
 					</tr>
@@ -79,6 +76,7 @@
 						<tr>
 						<td>${itemOrder.item.name}</td>
 						<td>${itemOrder.units}</td>
+						<td>${itemOrder.image}</td>
 						<td>${itemOrder.totalPrice}</td>
 						<td>Delete</td>
 						</tr>
@@ -87,6 +85,7 @@
 				</tbody>
 			</table>
 			
+		<form action="saveOrder" method="post">	
 			<input type="submit" value="Proceed Payment"/>
 		</form>
 		

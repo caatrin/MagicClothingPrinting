@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.magicclothing.domain.Item;
 import com.magicclothing.domain.ItemOrder;
 import com.magicclothing.repository.ItemOrderRepository;
+import com.magicclothing.repository.ItemRepository;
 import com.magicclothing.service.ItemOrderService;
 
 @Service
@@ -17,7 +18,9 @@ public class ItemOrderServiceImpl implements ItemOrderService {
 	
 	@Autowired
 	ItemOrderRepository itemOrderRepository;
-
+	@Autowired
+	ItemRepository itemRepository;
+	
 	@Override
 	public List<ItemOrder> getAll() {
 		return itemOrderRepository.getAllItemOrders();
@@ -25,6 +28,8 @@ public class ItemOrderServiceImpl implements ItemOrderService {
 
 	@Override
 	public void save(ItemOrder itemOrder) {
+//		Item item = itemRepository.getItemByName(itemOrder.getItem().getName());
+//		itemOrder.setItem(item);
 		itemOrderRepository.save(itemOrder);
 	}
 

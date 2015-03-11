@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.magicclothing.domain.Customer;
 import com.magicclothing.domain.Item;
+import com.magicclothing.domain.ItemOrder;
 import com.magicclothing.service.CustomerService;
 import com.magicclothing.service.ItemService;
 
@@ -47,7 +48,7 @@ public class LoginController {
 		List<Item> listOfItems = itemService.getAll();
 		System.out.println("List of items: " + listOfItems.size());
 		model.addAttribute("listOfItems", listOfItems);
-		
+		model.addAttribute("itemOrder", new ItemOrder());
 		return "customerOrder";
 	}
 	

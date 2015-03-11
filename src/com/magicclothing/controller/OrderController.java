@@ -1,22 +1,29 @@
 package com.magicclothing.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.magicclothing.domain.Customer;
 import com.magicclothing.domain.Item;
 import com.magicclothing.domain.ItemOrder;
+import com.magicclothing.domain.Order;
 import com.magicclothing.service.ItemOrderService;
 import com.magicclothing.service.ItemService;
+import com.magicclothing.service.OrderService;
 
 @Controller
+@SessionAttributes(value={"email", "valid"})
 public class OrderController {
 	
 	@Autowired
@@ -24,24 +31,41 @@ public class OrderController {
 	
 	@Autowired
 	ItemOrderService itemOrderService;
+	@Autowired
+	OrderService orderService;
 	
+	private List<ItemOrder> listOfItemOrders = new ArrayList<ItemOrder>(); 
 	
 	@RequestMapping(value = "/customerOrder", method = RequestMethod.GET)
 	public String getCustomerOrder(Model model) {
-		
 		List<Item> listOfItems = itemService.getAll();
-		System.out.println("List of items: " + listOfItems.size());
 		model.addAttribute("listOfItems", listOfItems);
+		model.addAttribute("itemOrder", new ItemOrder());
+		model.addAttribute("listOfItemOrders", listOfItemOrders);
 		return "customerOrder";
 	}
 	
 	@RequestMapping(value = "/addItemOrder", method = RequestMethod.POST)
-	public String addItemOrder(ItemOrder itemOrder, Model model) {
-		System.out.println("I am in add order");
+	public String addItemOrder(@ModelAttribute ItemOrder itemOrder, Model model) {
 		itemOrder.setTotalPrice(itemOrder.getUnits() * itemOrder.getItem().getPrice());
-		itemOrderService.save(itemOrder);
-		model.addAttribute("listOfItemOrders", itemOrderService.getAll());
+		Item item = itemService.findBy(itemOrder.getItem().getName());
+		itemOrder.setItem(item);
+		listOfItemOrders.add(itemOrder);
 		return "redirect:/customerOrder";
+	}
+	
+	@RequestMapping(value="/saveOrder", method = RequestMethod.POST)
+	public String saveOrder(Model model) {
+		String email = (String) model.asMap().get("email");
+		Order order = new Order();
+		order.setListOfItemOrders(listOfItemOrders);
+		Customer customer = new Customer();
+		customer.setEmail(email);
+		order.setCustomer(customer);
+		order.setStatus("On hold");
+		order.setDate(new Date());
+		orderService.save(order);
+		return "redirect:/displayPayment";
 	}
 	
 	
