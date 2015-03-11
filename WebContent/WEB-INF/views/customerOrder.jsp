@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Customer Order</title>
 <link rel="stylesheet" href=<c:url value="resources/css/magicclothing.css"/>>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type="text/javascript" src="<c:url value="resources/js/exp.js"/>"></script>
 </head>
 <body>

@@ -11,7 +11,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Table(schema="magicclothingprinting")
-@XmlRootElement
 public class Item implements Serializable{
 	
 	/**

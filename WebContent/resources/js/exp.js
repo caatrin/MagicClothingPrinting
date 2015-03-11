@@ -27,7 +27,7 @@ $(function() {
 		    function addName(response) {
 		        if (response) {
 		            var data = response;
-		            $('#price').val(data.name);
+		            $('#price').val(data.price);
 		       
 		        }
 		    }

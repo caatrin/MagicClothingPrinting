@@ -42,8 +42,8 @@ public class OrderController {
 	}
 	
 	@RequestMapping(value = "/getItem" ,method = RequestMethod.GET)
-	public @ResponseBody Item getItem(){
-		return itemService.findBy("Pants");
+	public @ResponseBody Item getItem(@RequestParam String name){
+		return itemService.findBy(name);
 	}
 	
 	
