@@ -17,7 +17,6 @@ import com.magicclothing.service.ItemOrderService;
 import com.magicclothing.service.ItemService;
 
 @Controller
-@RequestMapping("/order")
 public class OrderController {
 	
 	@Autowired
@@ -28,7 +27,11 @@ public class OrderController {
 	
 	
 	@RequestMapping(value = "/customerOrder", method = RequestMethod.GET)
-	public String getCustomerOrder() {
+	public String getCustomerOrder(Model model) {
+		
+		List<Item> listOfItems = itemService.getAll();
+		System.out.println("List of items: " + listOfItems.size());
+		model.addAttribute("listOfItems", listOfItems);
 		return "customerOrder";
 	}
 	
@@ -41,6 +44,12 @@ public class OrderController {
 		return "redirect:/customerOrder";
 	}
 	
+	
+	/**
+	 * Respond to ajax call and return a json with item object
+	 * @param name
+	 * @return Item
+	 */
 	@RequestMapping(value = "/getItem" ,method = RequestMethod.GET)
 	public @ResponseBody Item getItem(@RequestParam String name){
 		return itemService.findBy(name);

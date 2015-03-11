@@ -36,16 +36,19 @@
 				</p>
 				<p>
 					<label for="price">Price per Unit: </label>
-					<input id="price" name="price" type="text" readonly="" />
+					<input id="price" type="text" readonly="" />
 				</p>
 				<p>
 					<label for="image">Image: </label>
 					<input id="image" name="image" type="text"/>
 				</p>
-
 				<p>
 					<label for="units">Select Units: </label>
 					<input id="units" name="units" type="text"/>
+				</p>
+				<p>
+					<label for="totalPrice">Total Price: </label>
+					<input id="totalPrice" name="totalPrice" type="text" readonly="" />
 				</p>
 				<p id="buttons">
 					<input id="addItem" type="submit" value="Add Item">
