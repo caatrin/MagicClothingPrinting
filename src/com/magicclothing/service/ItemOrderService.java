@@ -8,8 +8,10 @@ import com.magicclothing.domain.ItemOrder;
 public interface ItemOrderService {
 	
 	public List<ItemOrder> getAll();
+//	public List<ItemOrder> getItemByOrderId(Long id);
 	public void save(ItemOrder itemOrder);
 	public ItemOrder findBy(Item item);
 	public ItemOrder get(Long id);
+	
 
 }

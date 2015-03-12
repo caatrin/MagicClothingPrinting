@@ -86,9 +86,11 @@
 			</table>
 			
 		<form action="saveOrder" method="post">	
+			<input type="submit" value="Save Order"/>
+		</form>
+		<form action="proceedPayment" method="get">	
 			<input type="submit" value="Proceed Payment"/>
 		</form>
-		
 			
 			
 		

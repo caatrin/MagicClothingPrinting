@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.magicclothing.OrderStatus;
 import com.magicclothing.domain.Customer;
 import com.magicclothing.domain.Item;
 import com.magicclothing.domain.ItemOrder;
@@ -37,6 +39,8 @@ public class OrderController {
 	
 	private List<ItemOrder> listOfItemOrders = new ArrayList<ItemOrder>(); 
 	
+	private Date timeStamp = new Date();
+	
 	@RequestMapping(value = "/customerOrder", method = RequestMethod.GET)
 	public String getCustomerOrder(Model model) {
 		List<Item> listOfItems = itemService.getAll();
@@ -57,16 +61,38 @@ public class OrderController {
 	
 	@RequestMapping(value="/saveOrder", method = RequestMethod.POST)
 	public String saveOrder(Model model) {
+		setAndSaveOrder(model);
+		return "redirect:/displayPayment";
+	}
+	
+	@RequestMapping(value="/proceedPayment", method = RequestMethod.GET)
+	public String proceedPayment(Model model, RedirectAttributes redirectAttributes ) {
+		Order orderSaved = setAndSaveOrder(model);
+		Double orderTotal = 0.0;
+		List<ItemOrder> itemsFromOrder = orderSaved.getListOfItemOrders();
+		for(int i= 0; i< itemsFromOrder.size();i++){
+			orderTotal += listOfItemOrders.get(i).getTotalPrice();
+		}
+		orderSaved.setOrderTotal(orderTotal);
+		redirectAttributes.addFlashAttribute("orderSaved", orderSaved);
+//		redirectAttributes.addFlashAttribute("orderTotal", orderTotal);
+//		System.out.println("Order Id "+orderSaved.getOrderId());
+//		model.addAttribute("order", orderSaved);
+//		model.addAttribute("orderTotal", orderTotal);
+		return "redirect:/displayPayment";
+	}
+	
+	private Order setAndSaveOrder(Model model){
 		String email = ((Person) model.asMap().get("person")).getEmail();
 		Order order = new Order();
 		order.setListOfItemOrders(listOfItemOrders);
 		Customer customer = new Customer();
 		customer.setEmail(email);
 		order.setCustomer(customer);
-		order.setStatus("On hold");
-		order.setDate(new Date());
+		order.setStatus(OrderStatus.PENDING.getLabel());
+		order.setDate(timeStamp);
 		orderService.save(order);
-		return "redirect:/displayPayment";
+		return order;
 	}
 	
 	
@@ -88,7 +114,6 @@ public class OrderController {
 		model.addAttribute("personOrders", personOrders);
 		return "customerOrderHistory";
 	}
-	
 	
 	
 

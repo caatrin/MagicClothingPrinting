@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.magicclothing.domain.Item;
@@ -16,5 +17,8 @@ public interface ItemOrderRepository extends CrudRepository<ItemOrder, Long>{
 	public List<ItemOrder> getAllItemOrders();
 	
 	public ItemOrder getItemOrderByItem(Item item);
+	
+//	@Query("SELECT i FROM ItemOrder i WHERE i.orderid = :id")
+//	public List<ItemOrder> getItemByOrderId(@Param("id")Long id);
 
 }

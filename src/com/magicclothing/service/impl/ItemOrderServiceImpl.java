@@ -43,4 +43,9 @@ public class ItemOrderServiceImpl implements ItemOrderService {
 		return itemOrderRepository.findOne(id);
 	}
 
+//	@Override
+//	public List<ItemOrder> getItemByOrderId(Long id) {
+//		return itemOrderRepository.getItemByOrderId(id);
+//	}
+
 }

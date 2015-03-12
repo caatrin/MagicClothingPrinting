@@ -16,7 +16,7 @@
 
 <h2>Our staff will contact you soon to confirm pick up!</h2>
 
-<a href="/MagicClothingPrinting/displayCustomerOrder">Go to your Order History</a>
+<a href="/MagicClothingPrinting/customerOrderHistory">Go to your Order History</a>
 </div>
 
 <jsp:include page="/WEB-INF/views/footer.jsp"/>

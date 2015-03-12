@@ -1,5 +1,6 @@
 package com.magicclothing.repository;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
@@ -17,5 +18,7 @@ public interface OrderRepository extends CrudRepository<Order, Long> {
 	
 	@Query("SELECT o FROM Order o WHERE o.customer.personId = :id")
 	public List<Order> findAllOrders(@Param("id")Long id);
-
+	
+	@Query("SELECT o FROM Order o WHERE o.customer.personId = :id AND date = :date")
+	public Order findOrderByDate(@Param("id")Long id, @Param("date")Date date);
 }

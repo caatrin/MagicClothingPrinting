@@ -3,6 +3,7 @@ package com.magicclothing.domain;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,10 +25,12 @@ public class Payment implements Serializable{
 	private String paymentType;
 	@NotNull
 	private Long cardNumber;
+	private Date expirationDate;
+	private Long securityNumber;
 	private Double transactionAmount;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date transsactionDate;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.REFRESH)
 	private Order order;
 	
 	public Payment(){
@@ -70,6 +73,22 @@ public class Payment implements Serializable{
 		this.cardNumber = cardNumber;
 	}
 
+	public Date getExpirationDate() {
+		return expirationDate;
+	}
+
+	public void setExpirationDate(Date expirationDate) {
+		this.expirationDate = expirationDate;
+	}
+
+	public Long getSecurityNumber() {
+		return securityNumber;
+	}
+
+	public void setSecurityNumber(Long securityNumber) {
+		this.securityNumber = securityNumber;
+	}
+
 	public Double getTransactionAmount() {
 		return transactionAmount;
 	}
@@ -86,22 +105,23 @@ public class Payment implements Serializable{
 		this.transsactionDate = transsactionDate;
 	}
 
-//
-//	public String getOrderId() {
-//		return orderId;
-//	}
-//
-//	public void setOrderId(String orderId) {
-//		this.orderId = orderId;
-//	}
-//
-//	public Integer getTotal() {
-//		return total;
-//	}
-//
-//	public void setTotal(Integer total) {
-//		this.total = total;
-//	}
+	public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
+	}
+
+	@Override
+	public String toString() {
+		return "Payment [paymentId=" + paymentId + ", paymentType="
+				+ paymentType + ", cardNumber=" + cardNumber
+				+ ", expirationDate=" + expirationDate + ", securityNumber="
+				+ securityNumber + ", transactionAmount=" + transactionAmount
+				+ ", transsactionDate=" + transsactionDate + ", order=" + order
+				+ "]";
+	}
 	
 	
 	

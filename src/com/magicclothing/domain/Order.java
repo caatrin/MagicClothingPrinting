@@ -15,6 +15,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 @Entity
 @Table(schema="magicclothingprinting")
@@ -31,7 +32,17 @@ public class Order {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date date;
 	private String status;
+	@Transient
+	private Double orderTotal;
 	
+	public Double getOrderTotal() {
+		return orderTotal;
+	}
+
+	public void setOrderTotal(Double orderTotal) {
+		this.orderTotal = orderTotal;
+	}
+
 	public Order() {
 		
 	}
@@ -40,6 +51,11 @@ public class Order {
 		return orderId;
 	
 	}
+	
+	public void setOrderId(Long orderId) {
+		this.orderId = orderId;
+	}
+
 	public List<ItemOrder> getListOfItemOrders() {
 		return listOfItemOrders;
 	}

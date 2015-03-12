@@ -1,5 +1,6 @@
 package com.magicclothing.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,11 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public List<Order> getAll(Long id) {
 		return orderRepository.findAllOrders(id);
+	}
+
+	@Override
+	public Order findOrderByDate(Long id, Date date) {
+		return orderRepository.findOrderByDate(id, date);
 	}
 
 }

@@ -14,42 +14,43 @@
 
 <div id="section">
 <h1>Order Payment</h1>
-<form action = "thankyou" method="post" class="paymentFormCss">
+<form:form modelAttribute ="newPayment"  action = "payment" method="post" class="paymentFormCss">
 	<fieldset>
 		<legend>Payment Information</legend>
 		<p>
 		</p>
 		<p>
 			<label for="orderId">Order Id: </label>
-			<input name="orderId"  type="text" value="P876" readonly="true" class="paymentPropertyOrderId"/>
+			<form:input name="orderId"  type="text"  path = "order.orderId" value = "${order.orderId}" readonly="true" class="paymentPropertyOrderId"/>
 		</p>
 		<p>
-			<label for="total">Total: </label>
-			<input name="total" type="text"  value="1650" readonly="true" class="paymentPropertyTotal"/>
+		
+			<label for="transactionAmount">Transaction Amount: </label>
+			<form:input name="transactionAmount" type="text" path ="transactionAmount" value="${order.orderTotal}" readonly="true" class="paymentPropertyTotal"/>
 		</p>
 		<p>
 			<label for="paymentType">Payment Type: </label>
-			<label><input type="radio" name="paymentType" value="Credit Card" checked/>Credit Card</label>
-			<label><input type="radio" name="paymentType" value="Debit Card"/>Debit Card</label>		
+			<label><form:radiobutton name="paymentType" path="paymentType" value="Credit Card" checked="true"/>Credit Card</label>
+			<label><form:radiobutton name="paymentType" path="paymentType" value="Debit Card"/>Debit Card</label>		
 		</p>
 		<p>
 			<label for="cardNumber">Card Number: </label>
-			<input name="cardNumber"  type="text" class="paymentPropertyCardNumber"/>
+			<form:input name="cardNumber" path="cardNumber" type="text" class="paymentPropertyCardNumber"/>
 		</p>
 		<p>
 			<label for="expirationDate">Expiration Date: </label>
-			<input name="expirationDate"  type="text" class="paymentPropertyExpirationDate"/>
+			<form:input name="expirationDate"  path="expirationDate" type="text" class="paymentPropertyExpirationDate"/>
 		</p>	
 		<p>
 			<label for="securityNumber">security number: </label>
-			<input name="securityNumber"  type="text" class="paymentPropertySecurityNumber"/>
+			<form:input name="securityNumber"  path="securityNumber" type="text" class="paymentPropertySecurityNumber"/>
 		</p>	
 	</fieldset>
 	
 	<p id="buttons">
              <input id="paymentBtn" type="submit" value="Pay!"  />
         </p>
-</form>
+</form:form>
 </div>
 
 <jsp:include page="/WEB-INF/views/footer.jsp"/>
