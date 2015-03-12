@@ -3,21 +3,26 @@ package com.magicclothing.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.magicclothing.domain.Customer;
 import com.magicclothing.domain.Item;
+import com.magicclothing.domain.ItemOrder;
 import com.magicclothing.service.CustomerService;
 import com.magicclothing.service.ItemService;
 
 @Controller
-@SessionAttributes(value={"email", "valid"})
+@SessionAttributes(value={"person", "valid"})
 public class LoginController {
 	
 	@Autowired
@@ -26,7 +31,7 @@ public class LoginController {
 	@Autowired
 	ItemService itemService;
 	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/displaylogin", method = RequestMethod.GET)
 	public String displayLogin() {
 		return "login";
 	}
@@ -35,19 +40,18 @@ public class LoginController {
 	public String loginIntoSystem(Customer loginCustomer, Model model) {
 		
 		Customer customer = customerService.findBy(loginCustomer.getEmail());
-		
 		if(customer == null || !customer.getPassword().equals(loginCustomer.getPassword())) {		
 			throw new RuntimeException("Username or Password is invalid");
 		} 
 				
-		
 		model.addAttribute("valid", true);
-		model.addAttribute("email", customer.getEmail());
+		model.addAttribute("person", customer);
+		System.out.println("customer id: " + customer.getPersonId());
 		
 		List<Item> listOfItems = itemService.getAll();
 		System.out.println("List of items: " + listOfItems.size());
 		model.addAttribute("listOfItems", listOfItems);
-		
+		model.addAttribute("itemOrder", new ItemOrder());
 		return "customerOrder";
 	}
 	

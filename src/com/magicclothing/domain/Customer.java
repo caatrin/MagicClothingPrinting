@@ -18,15 +18,15 @@ public class Customer extends Person implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	@NotEmpty
+	@NotEmpty(message = "{NotEmpty.person.street.validation}")
 	private String street;
 	private String city;
 	private String state;
-	@NotNull
+	@NotNull(message = "{NotNull.person.zipcode.validation}")
 	private Integer zipcode;
-	@NotNull
+	@NotNull(message = "{NotNull.person.phoneNumber.validation}")
 	private Long phoneNumber;
-	@NotEmpty
+	@NotEmpty(message = "{NotEmpty.person.confirmPassword.validation}")
 	private String confirmPassword;
 	@OneToMany(mappedBy="customer")
 	private List<Order> listOfOrders;

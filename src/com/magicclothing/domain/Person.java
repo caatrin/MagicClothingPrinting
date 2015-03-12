@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 
 @Entity
 @Inheritance()
@@ -16,9 +18,13 @@ public class Person {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long personId;
+	@NotEmpty(message = "{NotEmpty.person.firstName.validation}")
 	private String firstName;
+	@NotEmpty(message = "{NotEmpty.person.lastName.validation}")
 	private String lastName;
+	@NotEmpty(message = "{NotEmpty.person.email.validation}")
 	private String email;
+	@NotEmpty(message = "{NotEmpty.person.password.validation}")
 	private String password;
 	
 	public Person() {

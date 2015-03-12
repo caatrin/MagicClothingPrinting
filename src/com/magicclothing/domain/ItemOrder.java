@@ -1,5 +1,6 @@
 package com.magicclothing.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,7 +15,7 @@ public class ItemOrder {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long itemOrderId;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.MERGE)
 	private Item item;
 	private Integer units;
 	private String image;

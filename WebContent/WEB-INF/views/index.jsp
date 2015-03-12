@@ -16,7 +16,7 @@
 	<form action="displaysignup" class="indexMarginTop">
 		<input type="submit" value="Sign up"  class="loginBtnClass"/>
 	</form>
-	<form action="login" class="indexMarginTop">
+	<form action="displaylogin" class="indexMarginTop">
 		<input type="submit" value="Log in" class="loginBtnClass"/>
 	</form>
 	<!-- to be deleted -->
