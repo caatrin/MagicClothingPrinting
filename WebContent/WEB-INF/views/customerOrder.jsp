@@ -18,7 +18,7 @@
 <div id="section">
 
 	<div id="orderHistory">
-		<form action="displayCustomerOrder">
+		<form action="customerOrderHistory">
 		<input type="submit" value="Customer Order History" />
 		</form>
 	</div>

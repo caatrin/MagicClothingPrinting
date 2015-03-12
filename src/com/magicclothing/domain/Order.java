@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,7 +23,7 @@ public class Order {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long orderId;
-	@OneToMany(cascade = CascadeType.PERSIST)
+	@OneToMany(cascade = CascadeType.PERSIST, fetch=FetchType.EAGER)
 	@JoinColumn(name="orderId")
 	private List<ItemOrder> listOfItemOrders;
 	@OneToOne()

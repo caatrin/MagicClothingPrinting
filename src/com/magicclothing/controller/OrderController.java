@@ -18,12 +18,13 @@ import com.magicclothing.domain.Customer;
 import com.magicclothing.domain.Item;
 import com.magicclothing.domain.ItemOrder;
 import com.magicclothing.domain.Order;
+import com.magicclothing.domain.Person;
 import com.magicclothing.service.ItemOrderService;
 import com.magicclothing.service.ItemService;
 import com.magicclothing.service.OrderService;
 
 @Controller
-@SessionAttributes(value={"email", "valid"})
+@SessionAttributes(value={"person", "valid"})
 public class OrderController {
 	
 	@Autowired
@@ -56,7 +57,7 @@ public class OrderController {
 	
 	@RequestMapping(value="/saveOrder", method = RequestMethod.POST)
 	public String saveOrder(Model model) {
-		String email = (String) model.asMap().get("email");
+		String email = ((Person) model.asMap().get("person")).getEmail();
 		Order order = new Order();
 		order.setListOfItemOrders(listOfItemOrders);
 		Customer customer = new Customer();
@@ -77,6 +78,15 @@ public class OrderController {
 	@RequestMapping(value = "/getItem" ,method = RequestMethod.GET)
 	public @ResponseBody Item getItem(@RequestParam String name){
 		return itemService.findBy(name);
+	}
+	
+	@RequestMapping(value = "/customerOrderHistory", method = RequestMethod.GET)
+	public String displayCustomerOrderHistory(Model model) {
+		Long personId = ((Person)model.asMap().get("person")).getPersonId();
+		List<Order> personOrders = orderService.getAll(personId);
+			System.out.println(personOrders.size());
+		model.addAttribute("personOrders", personOrders);
+		return "customerOrderHistory";
 	}
 	
 	
