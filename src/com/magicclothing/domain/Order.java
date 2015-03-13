@@ -34,6 +34,8 @@ public class Order {
 	private String status;
 	@Transient
 	private Double orderTotal;
+	@OneToOne(mappedBy="order", cascade = CascadeType.ALL)
+	private Payment payment;
 	
 	public Double getOrderTotal() {
 		return orderTotal;
@@ -79,6 +81,10 @@ public class Order {
 	}
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public void setPayment(Payment payment) {
+		this.payment = payment;
 	}
 	
 		

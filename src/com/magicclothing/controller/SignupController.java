@@ -24,13 +24,13 @@ public class SignupController {
 	CustomerService customerService;
 
 	@RequestMapping(value = "/displaysignup", method = RequestMethod.GET)
-	public String displaySignup(@ModelAttribute("newCustomer") Customer customer) {
+	public String displaySignup(@ModelAttribute("newCustomer") Customer customer) throws Exception{
 		return "signup";
 	}
 
 	@RequestMapping(value = "/signup")
 	public String getSignup(@Valid @ModelAttribute("newCustomer") Customer customer, 
-			BindingResult bindingResult, Model model) {
+			BindingResult bindingResult, Model model, Customer confirmPassword, Customer password) {
 		if (bindingResult.hasErrors()) {
 			return "signup";
 		}
@@ -42,6 +42,9 @@ public class SignupController {
 		}
 
 		// create customer
+		if(!password.getPassword().equals(confirmPassword.getConfirmPassword())){
+			throw new RuntimeException("Password and Confirm Password are invalid");
+		}
 		customerService.save(customer);
 		model.addAttribute("customer", customer);
 		return "login";

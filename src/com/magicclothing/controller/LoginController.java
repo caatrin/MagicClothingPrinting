@@ -31,9 +31,10 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value = "/customerOrder", method = RequestMethod.POST)
-	public String loginIntoSystem(Person loginPerson, Model model) {
+	public String loginIntoSystem(Person loginPerson, Model model) throws Exception{
 		
 		Person person = customerService.findBy(loginPerson.getEmail());
+		
 		if(person == null || !person.getPassword().equals(loginPerson.getPassword())) {		
 			throw new RuntimeException("Username or Password is invalid");
 		} 

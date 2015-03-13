@@ -19,7 +19,7 @@
 
 	<div id="orderHistory">
 		<form action="customerOrderHistory">
-		<input type="submit" value="Customer Order History" />
+		<input type="submit" value="Customer Order History" class="customerBtn"/>
 		</form>
 	</div>
 	
@@ -52,11 +52,11 @@
 				</p>
 				<p>
 					<label for="image">Upload Image: </label>
-					<form:input id="image" name="image" type="text" path="image"/>
+					<form:input id="image" name="image" type="file" path="image"/>
 				</p>
 				
 				<p id="buttons">
-					<input id="addItem" type="submit" value="Add Item">
+					<input id="addItem" type="submit" value="Add Item" class="customerBtn">
 				</p>
 			</form:form>
 		</div>
@@ -84,19 +84,16 @@
 				
 				</tbody>
 			</table>
-			
-		<form action="saveOrder" method="post">	
-			<input type="submit" value="Save Order"/>
-		</form>
-		<form action="proceedPayment" method="get">	
-			<input type="submit" value="Proceed Payment"/>
-		</form>
-			
-			
-		
-		
 	</div>
-</div>
+</div>	
+	<div id="customerSection">		
+		<form action="saveOrder" method="post" class="customerOrderBtn">	
+			<input type="submit" value="Save Order" class="customerBtn"/>
+		</form>
+		<form action="proceedPayment" method="get" class="customerOrderBtn">	
+			<input type="submit" value="Proceed Payment" class="customerBtn"/>
+		</form>
+	</div>	
 
 <jsp:include page="/WEB-INF/views/footer.jsp"/>
 </body>

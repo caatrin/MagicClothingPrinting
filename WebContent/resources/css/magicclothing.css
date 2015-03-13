@@ -2,7 +2,7 @@
 
 body {
 	font-family: Arial, Helvetica, sans-serif;
-	background-image: url(pinkFluffyUnicorn.png);
+	background-image: url(imageBackground2.jpg);
 	
 }
 h1{
@@ -27,6 +27,9 @@ table, tr, th, td{
 caption{
 	border: 2px solid black;
 }
+.header{
+	margin-left: 30%;
+}
 #logo {
 	width: 192px;
 	height: 91px;
@@ -34,9 +37,8 @@ caption{
 }
 #indexSection {
   display: flex;
-  margin: 10% 0% 4% 4%;
+  margin: 9% 0% 3% -17%;
   float: left;
-
   width: 41%;
 }
 #section{
@@ -55,8 +57,7 @@ caption{
 }
 #headerID{
 	display: block;
-	float: left;
-	
+	float: left;	
 }
 #mainHead{
 	display: block;
@@ -210,3 +211,20 @@ caption{
   font-size: 1em;
   margin-left: 29%;	
 }
+#customerSection{
+	display: flex;
+  	margin: 6% 0% 3% 37%;
+  	float: left;
+  	width: 41%;
+}
+.customerOrderBtn{
+	margin-top: 5%;
+	margin-right: 6%;
+	width: 40%;
+}
+.customerBtn{
+	border-radius: 9%;
+	color: black;
+  	font-size: 1em;	
+}
+

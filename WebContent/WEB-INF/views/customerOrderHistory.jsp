@@ -11,8 +11,13 @@
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/header.jsp" />
-
+	
 	<div id="section">
+		<div id="customerOrder">
+			<form action="customerOrder">
+			<input type="submit" value="Create Order" class="customerBtn"/>
+			</form>
+		</div>
 		<h1>Customer Order History</h1>
 		<table>
 			<caption>Orders</caption>

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.magicclothing.OrderStatus;
+import com.magicclothing.domain.Order;
 import com.magicclothing.domain.Payment;
 import com.magicclothing.domain.Person;
 import com.magicclothing.service.OrderService;
@@ -55,8 +56,12 @@ public class PaymentController {
 		
 		// Save payment
 		payment.setTranssactionDate(new Date());
-		
-		paymentService.save(payment);
+		Order order = orderService.get(payment.getOrder().getOrderId());
+		payment.setOrder(order);
+		payment.getOrder().setPayment(payment);
+		payment.getOrder().setStatus(OrderStatus.PROCESSING.getLabel());
+		orderService.save(payment.getOrder());
+//		paymentService.save(payment);
 //		System.out.println("da payment"+payment);
 		
 		return "thankyou";

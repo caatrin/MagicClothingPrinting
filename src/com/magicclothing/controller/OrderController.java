@@ -1,9 +1,13 @@
 package com.magicclothing.controller;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.catalina.connector.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.magicclothing.OrderStatus;
@@ -51,10 +56,24 @@ public class OrderController {
 	}
 	
 	@RequestMapping(value = "/addItemOrder", method = RequestMethod.POST)
-	public String addItemOrder(@ModelAttribute ItemOrder itemOrder, Model model) {
+	public String addItemOrder(@ModelAttribute ItemOrder itemOrder, Model model, HttpServletRequest request) {
 		itemOrder.setTotalPrice(itemOrder.getUnits() * itemOrder.getItem().getPrice());
 		Item item = itemService.findBy(itemOrder.getItem().getName());
 		itemOrder.setItem(item);
+		
+		//upload image
+//		MultipartFile image = itemOrder.getImage();
+//		String rootDirectory = request.getSession().getServletContext().getRealPath("/");
+//		
+//		if(image!=null && !image.isEmpty()){
+//			try{
+//				image.transferTo(new File(rootDirectory+"\\resources\\img\\"+itemOrder.getItemOrderId()));
+//			}catch(Exception e){
+//				throw new RuntimeException("Image save failed", e);
+//			}
+//		}
+		
+		//add item to list of item orders
 		listOfItemOrders.add(itemOrder);
 		return "redirect:/customerOrder";
 	}
@@ -110,7 +129,7 @@ public class OrderController {
 	public String displayCustomerOrderHistory(Model model) {
 		Long personId = ((Person)model.asMap().get("person")).getPersonId();
 		List<Order> personOrders = orderService.getAll(personId);
-			System.out.println(personOrders.size());
+//			System.out.println(personOrders.size());
 		model.addAttribute("personOrders", personOrders);
 		return "customerOrderHistory";
 	}

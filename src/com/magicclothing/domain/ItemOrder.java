@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.web.multipart.MultipartFile;
+
 @Entity
 @Table(schema="magicclothingprinting")
 public class ItemOrder {
@@ -18,6 +20,7 @@ public class ItemOrder {
 	@OneToOne(cascade = CascadeType.MERGE)
 	private Item item;
 	private Integer units;
+//	private MultipartFile image;
 	private String image;
 	private Double totalPrice;
 	
