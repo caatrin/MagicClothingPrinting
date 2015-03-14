@@ -19,10 +19,11 @@
 
 	<div id="orderHistory">
 		<form action="customerOrderHistory">
-		<input type="submit" value="Customer Order History" class="customerBtn"/>
+		<input type="submit" value="Customer Order History" class="customerOrderHistoryBtn"/>
 		</form>
+		<jsp:include page="/WEB-INF/views/logout.jsp"/>
 	</div>
-	<jsp:include page="/WEB-INF/views/logout.jsp"/>
+	
 	
 	<div id="items">
 			<form:form action="addItemOrder" method="post" modelAttribute="itemOrder">
@@ -57,7 +58,7 @@
 				</p>
 				
 				<p id="buttons">
-					<input id="addItem" type="submit" value="Add Item" class="customerBtn">
+					<input id="addItem" type="submit" value="Add Item" class="addItemBtn">
 				</p>
 			</form:form>
 		</div>
@@ -71,7 +72,7 @@
 						<th>Units</th>
 						<th>Image</th>
 						<th>Total Price</th>
-						<th>Options</th>
+						<!-- <th>Options</th> -->
 					</tr>
 					<c:forEach var="itemOrder" items = "${listOfItemOrders}">
 						<tr>
@@ -79,7 +80,7 @@
 						<td>${itemOrder.units}</td>
 						<td>${itemOrder.image}</td>
 						<td>${itemOrder.totalPrice}</td>
-						<td>Delete</td>
+						<!-- <td>Delete</td> -->
 						</tr>
 					</c:forEach>
 				
