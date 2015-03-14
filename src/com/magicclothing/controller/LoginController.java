@@ -12,8 +12,10 @@ import org.springframework.web.bind.support.SessionStatus;
 
 import com.magicclothing.domain.Item;
 import com.magicclothing.domain.ItemOrder;
+import com.magicclothing.domain.Order;
 import com.magicclothing.domain.Person;
 import com.magicclothing.service.ItemService;
+import com.magicclothing.service.OrderService;
 import com.magicclothing.service.PersonService;
 
 @Controller
@@ -25,6 +27,8 @@ public class LoginController {
 	
 	@Autowired
 	ItemService itemService;
+	@Autowired
+	OrderService orderService;
 	
 	@RequestMapping(value = "/displaylogin", method = RequestMethod.GET)
 	public String displayLogin() {
@@ -46,6 +50,8 @@ public class LoginController {
 //		System.out.println(person.getPersonId());
 //		System.out.println(admin.getPersonId());
 		if(person.getPersonId().equals(admin.getPersonId())){
+			List<Order> listOfOrders = orderService.getAll();
+			model.addAttribute("listOfOrders", listOfOrders);
 			return "adminOrderHistory";
 		}
 				
@@ -60,11 +66,10 @@ public class LoginController {
 		return "customerOrder";
 	}
 	
+	
 	 @RequestMapping ("/logout")
 	  public String Logout(SessionStatus status ) throws Exception {
-
 		  status.setComplete();
-	       
 		  return  "redirect:displaylogin";  
 
 	}

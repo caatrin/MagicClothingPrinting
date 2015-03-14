@@ -20,11 +20,15 @@
 		<form action="changeStatus" method="post">
 			<p>
 				<label for="orderId">Order Id: </label> <input id="orderId"
-					value="orderId" readonly="readonly" />
+					value="${order.orderId}" readonly="readonly" />
+			</p>
+			<p>
+				<label for="orderStatus">Order Status: </label> <input id="orderStatus"
+					value="${order.status}"" readonly="readonly" />
 			</p>
 			<p>
 				<label for="customerName">Customer Name: </label> <input
-					id="customerName" value="customerName" readonly="readonly" />
+					id="customerName" value="${order.customer.firstName}"" readonly="readonly" />
 			</p>
 
 			<table class="table">
@@ -35,28 +39,26 @@
 						<th>Price per Unit</th>
 						<th>Total Price</th>
 					</tr>
+					<c:forEach var="itemOrder" items="${order.listOfItemOrders}">
 					<tr>
-						<td>T-shirt</td>
-						<td>2</td>
-						<td>5</td>
-						<td>10</td>
+						<td>${itemOrder.item.name}</td>
+						<td>${itemOrder.units}</td>
+						<td>${itemOrder.item.price}</td>
+						<td>${itemOrder.totalPrice}</td>
 					</tr>
-
+					</c:forEach>
 				</tbody>
 			</table>
 
 			<p>
 				<label for="status">Status: </label> 
 				<select id="status" name="status">
-					<option value="Processing">Processing</option>
-					<option value="Pick up">Pick up</option>
-					<option value="Printing">Printing</option>
-					<option value="Delivery">Delivery</option>
-					<option value="Completed">Completed</option>
+				<c:forEach var="status" items="${listOfStatuses}">
+					<option value="${status.label}">${status.label}</option>
+				</c:forEach>
 				</select>
-					
 			</p>
-
+			<input type="submit" value="Change Status"/>
 		</form>
 
     </div>

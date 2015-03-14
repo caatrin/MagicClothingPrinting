@@ -1,23 +1,21 @@
 package com.magicclothing.controller;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.catalina.connector.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.magicclothing.OrderStatus;
@@ -48,18 +46,20 @@ public class OrderController {
 	
 	@RequestMapping(value = "/customerOrder", method = RequestMethod.GET)
 	public String getCustomerOrder(Model model) {
-		List<Item> listOfItems = itemService.getAll();
-		model.addAttribute("listOfItems", listOfItems);
-		model.addAttribute("itemOrder", new ItemOrder());
+		initItemOrder(model);
 		model.addAttribute("listOfItemOrders", listOfItemOrders);
 		return "customerOrder";
 	}
 	@RequestMapping(value = "/createCustomerOrder", method = RequestMethod.GET)
 	public String createCustomerOrder(Model model){
+		initItemOrder(model);
+		return "customerOrder";
+	}
+	
+	private void initItemOrder(Model model) {
 		List<Item> listOfItems = itemService.getAll();
 		model.addAttribute("listOfItems", listOfItems);
 		model.addAttribute("itemOrder", new ItemOrder());
-		return "customerOrder";
 	}
 	
 	@RequestMapping(value = "/addItemOrder", method = RequestMethod.POST)
@@ -139,6 +139,22 @@ public class OrderController {
 //			System.out.println(personOrders.size());
 		model.addAttribute("personOrders", personOrders);
 		return "customerOrderHistory";
+	}
+	
+	@RequestMapping(value = "/updateOrderStatus", method = RequestMethod.GET)
+	public String displayUpdateOrderStatus(@RequestParam Long orderId, Model model) {
+		Order order = orderService.get(orderId);
+		model.addAttribute("order", order);
+		model.addAttribute("listOfStatuses", OrderStatus.values());
+		return "updateOrderStatus";
+	}
+	
+	@RequestMapping(value = "/changeStatus", method = RequestMethod.POST)
+	public String changeStatus(Order order) {
+		System.out.println("Order ID " + order.getOrderId());
+		//order.setStatus("");
+		//orderService.save(order);
+		return "adminOrderHistory";
 	}
 	
 	
