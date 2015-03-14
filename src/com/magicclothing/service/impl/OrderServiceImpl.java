@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.magicclothing.domain.Customer;
 import com.magicclothing.domain.Order;
-import com.magicclothing.repository.CustomerRepository;
+import com.magicclothing.repository.PersonRepository;
 import com.magicclothing.repository.OrderRepository;
 import com.magicclothing.service.OrderService;
 
@@ -20,7 +20,7 @@ public class OrderServiceImpl implements OrderService {
 	@Autowired
 	OrderRepository orderRepository;
 	@Autowired
-	CustomerRepository customerRepository;
+	PersonRepository personRepository;
 	
 	
 	@Override
@@ -35,7 +35,7 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public void save(Order order) {
-		Customer customer = customerRepository.getCustomerByEmail(order.getCustomer().getEmail());
+		Customer customer = (Customer)personRepository.getPersonByEmail(order.getCustomer().getEmail());
 		order.setCustomer(customer);
 		orderRepository.save(order);
 	}

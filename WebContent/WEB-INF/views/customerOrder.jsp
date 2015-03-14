@@ -22,6 +22,7 @@
 		<input type="submit" value="Customer Order History" class="customerBtn"/>
 		</form>
 	</div>
+	<jsp:include page="/WEB-INF/views/logout.jsp"/>
 	
 	<div id="items">
 			<form:form action="addItemOrder" method="post" modelAttribute="itemOrder">

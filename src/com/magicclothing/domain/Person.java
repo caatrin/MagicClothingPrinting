@@ -1,11 +1,13 @@
 package com.magicclothing.domain;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
+import javax.persistence.Transient;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -26,6 +28,8 @@ public class Person {
 	private String email;
 	@NotEmpty(message = "{NotEmpty.person.password.validation}")
 	private String password;
+	@Column(insertable=false, updatable=false)
+	private String personType;
 	
 	public Person() {
 		

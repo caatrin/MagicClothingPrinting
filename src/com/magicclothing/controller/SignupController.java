@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.magicclothing.domain.Customer;
-import com.magicclothing.service.CustomerService;
+import com.magicclothing.service.PersonService;
 
 @Controller("/customer")
 public class SignupController {
 
 	@Autowired
-	CustomerService customerService;
+	PersonService customerService;
 
 	@RequestMapping(value = "/displaysignup", method = RequestMethod.GET)
 	public String displaySignup(@ModelAttribute("newCustomer") Customer customer) throws Exception{

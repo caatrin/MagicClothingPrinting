@@ -11,10 +11,11 @@
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/header.jsp" />
+	<jsp:include page="/WEB-INF/views/logout.jsp"/>
 	
 	<div id="section">
 		<div id="customerOrder">
-			<form action="customerOrder">
+			<form action="createCustomerOrder">
 			<input type="submit" value="Create Order" class="customerBtn"/>
 			</form>
 		</div>

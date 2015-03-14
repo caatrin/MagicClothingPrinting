@@ -11,7 +11,8 @@
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"/>
 
-<div id="section">
+<jsp:include page="/WEB-INF/views/logout.jsp"/>
+
 <h1>Admin Order History</h1>
 <table>
 <caption>All orders</caption>

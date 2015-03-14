@@ -12,6 +12,7 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"/>
+<jsp:include page="/WEB-INF/views/logout.jsp"/>
 
 <div id="section">
 	<h2>We would like to hear your feedback!</h2>

@@ -54,6 +54,13 @@ public class OrderController {
 		model.addAttribute("listOfItemOrders", listOfItemOrders);
 		return "customerOrder";
 	}
+	@RequestMapping(value = "/createCustomerOrder", method = RequestMethod.GET)
+	public String createCustomerOrder(Model model){
+		List<Item> listOfItems = itemService.getAll();
+		model.addAttribute("listOfItems", listOfItems);
+		model.addAttribute("itemOrder", new ItemOrder());
+		return "customerOrder";
+	}
 	
 	@RequestMapping(value = "/addItemOrder", method = RequestMethod.POST)
 	public String addItemOrder(@ModelAttribute ItemOrder itemOrder, Model model, HttpServletRequest request) {
@@ -81,7 +88,7 @@ public class OrderController {
 	@RequestMapping(value="/saveOrder", method = RequestMethod.POST)
 	public String saveOrder(Model model) {
 		setAndSaveOrder(model);
-		return "redirect:/displayPayment";
+		return "redirect:/customerOrderHistory";
 	}
 	
 	@RequestMapping(value="/proceedPayment", method = RequestMethod.GET)

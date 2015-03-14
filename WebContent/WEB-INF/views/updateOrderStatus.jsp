@@ -10,6 +10,7 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"/>
+<jsp:include page="/WEB-INF/views/logout.jsp"/>
 
 <div id="section">
 	<h1>Update Order Status</h1>
