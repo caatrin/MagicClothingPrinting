@@ -10,7 +10,7 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"/>
-
+<div>
 <jsp:include page="/WEB-INF/views/logout.jsp"/>
 
 <h1>Admin Order History</h1>

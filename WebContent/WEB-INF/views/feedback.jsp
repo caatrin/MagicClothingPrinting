@@ -12,9 +12,9 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"/>
-<jsp:include page="/WEB-INF/views/logout.jsp"/>
 
 <div id="section">
+<jsp:include page="/WEB-INF/views/logout.jsp"/>
 	<h2>We would like to hear your feedback!</h2>
 	
 	<form:form modelAttribute="newFeedback" action="giveFeedback" class="feedbackFormCss">
