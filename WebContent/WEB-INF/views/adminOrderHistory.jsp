@@ -23,13 +23,17 @@
 	<th>Status</th>
 	<th>Action</th>
 </tr>
+
+<c:forEach var="order" items="${listOfOrders}">
 <tr>
-	<td>P001</td>
-	<td>Luis</td>
-	<td>Luis@Luis</td>
-	<td>Pending</td>
-	<td>Payment</td>
+	<td>${order.orderId}</td>
+	<td>${order.customer.firstName}</td>
+	<td>${order.customer.email}</td>
+	<td>${order.status}</td>
+	<td><a href="/MagicClothingPrinting/updateOrderStatus?orderId=${order.orderId}">Change Status</a></td>
 </tr>
+</c:forEach>
+
 </table>
 </div>
 
