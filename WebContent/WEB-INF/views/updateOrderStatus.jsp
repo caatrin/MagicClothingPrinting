@@ -7,17 +7,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Update Order Status</title>
 <link rel="stylesheet" href=<c:url value="resources/css/magicclothing.css"/>>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript" src="<c:url value="resources/js/orderStatus.js"/>"></script>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"/>
 <jsp:include page="/WEB-INF/views/logout.jsp"/>
 
+<div>
+	<a href="/MagicClothingPrinting/adminOrderHistory">Go to Order History </a>
+</div>
+
 <div id="section">
 	<h1>Update Order Status</h1>
 
 	<div>
-
-		<form action="changeStatus" method="post">
 			<p>
 				<label for="orderId">Order Id: </label> <input id="orderId"
 					value="${order.orderId}" readonly="readonly" />
@@ -58,8 +62,7 @@
 				</c:forEach>
 				</select>
 			</p>
-			<input type="submit" value="Change Status"/>
-		</form>
+		<button id="changeStatus" value="Change Status">Change Status</button>
 
     </div>
 </div>

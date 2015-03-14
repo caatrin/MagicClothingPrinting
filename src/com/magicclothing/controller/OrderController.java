@@ -7,14 +7,17 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -141,6 +144,13 @@ public class OrderController {
 		return "customerOrderHistory";
 	}
 	
+	@RequestMapping(value = "/adminOrderHistory", method = RequestMethod.GET)
+	public String displayAdminOrderHistory(Model model) {
+		List<Order> listOfOrders = orderService.getAll();
+		model.addAttribute("listOfOrders", listOfOrders);
+		return "adminOrderHistory";
+	}
+	
 	@RequestMapping(value = "/updateOrderStatus", method = RequestMethod.GET)
 	public String displayUpdateOrderStatus(@RequestParam Long orderId, Model model) {
 		Order order = orderService.get(orderId);
@@ -149,12 +159,12 @@ public class OrderController {
 		return "updateOrderStatus";
 	}
 	
-	@RequestMapping(value = "/changeStatus", method = RequestMethod.POST)
-	public String changeStatus(Order order) {
-		System.out.println("Order ID " + order.getOrderId());
-		//order.setStatus("");
-		//orderService.save(order);
-		return "adminOrderHistory";
+	@RequestMapping(value = "/orderId/{orderId}/changeStatus/{status}", method = RequestMethod.PUT)
+	@ResponseStatus(value = HttpStatus.NO_CONTENT)
+	public void changeStatus(@PathVariable Long orderId, @PathVariable String status, Model model) {
+		Order order = orderService.get(orderId);
+		order.setStatus(status);
+		orderService.save(order);
 	}
 	
 	
