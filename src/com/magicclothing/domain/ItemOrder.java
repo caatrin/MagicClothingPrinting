@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -20,7 +21,8 @@ public class ItemOrder {
 	@OneToOne(cascade = CascadeType.MERGE)
 	private Item item;
 	private Integer units;
-//	private MultipartFile image;
+	@Transient
+	private MultipartFile imageFile;
 	private String image;
 	private Double totalPrice;
 	
@@ -51,6 +53,14 @@ public class ItemOrder {
 
 	public void setUnits(Integer units) {
 		this.units = units;
+	}
+
+	public MultipartFile getImageFile() {
+		return imageFile;
+	}
+
+	public void setImageFile(MultipartFile imageFile) {
+		this.imageFile = imageFile;
 	}
 
 	public String getImage() {

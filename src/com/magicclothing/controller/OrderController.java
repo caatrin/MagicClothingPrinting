@@ -1,5 +1,8 @@
 package com.magicclothing.controller;
 
+import java.io.File;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -10,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.magicclothing.OrderStatus;
@@ -72,16 +75,21 @@ public class OrderController {
 		itemOrder.setItem(item);
 		
 		//upload image
-//		MultipartFile image = itemOrder.getImage();
-//		String rootDirectory = request.getSession().getServletContext().getRealPath("/");
-//		
-//		if(image!=null && !image.isEmpty()){
-//			try{
-//				image.transferTo(new File(rootDirectory+"\\resources\\img\\"+itemOrder.getItemOrderId()));
-//			}catch(Exception e){
-//				throw new RuntimeException("Image save failed", e);
-//			}
-//		}
+		MultipartFile image = itemOrder.getImageFile();
+		
+		String rootDirectory = request.getSession().getServletContext().getRealPath("/");
+		System.out.println("root directory is " + rootDirectory);
+		if(image!=null && !image.isEmpty()){
+			System.out.println("hello from if");
+			try{
+				DateFormat date = new SimpleDateFormat("MM_dd_YY_hhmm");
+				image.transferTo(new File(rootDirectory+"\\resources\\img\\customerImg\\" + 
+						itemOrder.getItem().getName() + "_" + date.format(timeStamp) + ".png"));
+				itemOrder.setImage(image.getOriginalFilename());
+			}catch(Exception e){
+				throw new RuntimeException("Image save failed", e);
+			}
+		}
 		
 		//add item to list of item orders
 		listOfItemOrders.add(itemOrder);
@@ -100,7 +108,7 @@ public class OrderController {
 		Double orderTotal = 0.0;
 		List<ItemOrder> itemsFromOrder = orderSaved.getListOfItemOrders();
 		for(int i= 0; i< itemsFromOrder.size();i++){
-			orderTotal += listOfItemOrders.get(i).getTotalPrice();
+			orderTotal += orderSaved.getListOfItemOrders().get(i).getTotalPrice();
 		}
 		orderSaved.setOrderTotal(orderTotal);
 		redirectAttributes.addFlashAttribute("orderSaved", orderSaved);
@@ -121,6 +129,7 @@ public class OrderController {
 		order.setStatus(OrderStatus.PENDING.getLabel());
 		order.setDate(timeStamp);
 		orderService.save(order);
+		listOfItemOrders = new ArrayList<ItemOrder>();
 		return order;
 	}
 	
@@ -139,6 +148,14 @@ public class OrderController {
 	public String displayCustomerOrderHistory(Model model) {
 		Long personId = ((Person)model.asMap().get("person")).getPersonId();
 		List<Order> personOrders = orderService.getAll(personId);
+		for(Order order : personOrders) {
+			Double orderTotal = 0.0;
+			for (ItemOrder io : order.getListOfItemOrders()) {
+				orderTotal += io.getTotalPrice();
+				order.setOrderTotal(orderTotal);
+			}
+		}
+		
 //			System.out.println(personOrders.size());
 		model.addAttribute("personOrders", personOrders);
 		return "customerOrderHistory";
