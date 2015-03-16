@@ -12,7 +12,6 @@
 <jsp:include page="/WEB-INF/views/header.jsp"/>
 
 <div id="section">
-<jsp:include page="/WEB-INF/views/logout.jsp"/>
 <h1>Thank you for your order!</h1>
 
 <h2>Our staff will contact you soon to confirm pick up!</h2>

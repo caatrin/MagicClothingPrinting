@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+`<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -11,7 +11,6 @@
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"/>
 <div>
-<jsp:include page="/WEB-INF/views/logout.jsp"/>
 
 <h1>Admin Order History</h1>
 <table>

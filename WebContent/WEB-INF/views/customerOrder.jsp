@@ -21,7 +21,6 @@
 		<form action="customerOrderHistory">
 		<input type="submit" value="Customer Order History" class="customerOrderHistoryBtn"/>
 		</form>
-		<jsp:include page="/WEB-INF/views/logout.jsp"/>
 	</div>
 	
 	

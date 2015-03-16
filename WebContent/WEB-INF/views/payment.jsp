@@ -14,7 +14,6 @@
 
 
 <div id="section">
-<jsp:include page="/WEB-INF/views/logout.jsp"/>
 <h1>Order Payment</h1>
 <form:form modelAttribute ="newPayment"  action = "payment" method="post" class="paymentFormCss">
 	<fieldset>

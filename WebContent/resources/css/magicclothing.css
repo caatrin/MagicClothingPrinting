@@ -31,19 +31,23 @@ caption{
 	border: 2px solid black;
 }
 .header{
-	margin-left: 30%;
 	background-color: pink;
+	float: left;
+	width: 100%;
+	margin-bottom: 1%;
 }
 #logo {
 	width: 192px;
 	height: 91px;
 	float:left;
+	padding-left: 32%;
 }
 #indexSection {
   display: flex;
-  margin: 9% 0% 3% -26%;
   float: left;
-  width: 41%;
+  width: 44%;
+  margin-left: 32%;
+  margin-top: 6%;
 }
 #section{
 	clear: both;
@@ -86,6 +90,7 @@ caption{
     border-radius: 9%;
     color: black;
     font-size: 1em;
+    background-color: pink;
 }
 .signUpFormCss
 {
@@ -132,6 +137,7 @@ caption{
   	color: black;
   	font-size: 1em;
   	margin-left: 41%;
+  	background-color: pink;
 }
 .loginFormCss{
   width: 26%;
@@ -154,6 +160,7 @@ caption{
   color: black;
   font-size: 1em;
   margin-left: 29%;
+  background-color: pink;
 }
 .paymentFormCss{
   width: 38%;
@@ -188,6 +195,7 @@ caption{
   color: black;
   font-size: 1em;
   margin-left: 29%;	
+  background-color: pink;
 }
 .feedbackFormCss{
 	width: 26%;
@@ -214,10 +222,11 @@ caption{
   color: black;
   font-size: 1em;
   margin-left: 29%;	
+  background-color: pink;
 }
 #customerSection{
 	display: flex;
-  	margin: 6% 0% 3% 37%;
+  	margin: 6% 0% 3% 36%;
   	float: left;
   	width: 41%;
 }
@@ -225,14 +234,16 @@ caption{
 	margin-top: 5%;
 	margin-right: 6%;
 	width: 40%;
+	background-color: pink;
 }
 .customerBtn{
 	border-radius: 9%;
 	color: black;
   	font-size: 1em;	
-  	width: 69%;
+  	width: 86%;
   	border: none;
   	height: 44px;
+  	background-color: pink;
   	
 }
 .addItemBtn{
@@ -242,6 +253,7 @@ caption{
   	width: 10%;
   	border: none;
   	height: 44px;
+  	background-color: pink;
 }
 .customerOrderHistoryBtn{
 	border-radius: 9%;
@@ -250,6 +262,7 @@ caption{
   	width: 14%;
   	border: none;
   	height: 44px;
+  	background-color: pink;
 }
 .createOrderBtn{
 	border-radius: 9%;
@@ -258,6 +271,7 @@ caption{
   	width: 10%;
   	border: none;
   	height: 44px;	
+  	background-color: pink;
 }
 #logout{
   margin-top: 1%;
@@ -269,4 +283,30 @@ caption{
   	width: 10.4%;
   	border: none;	
   	height: 44px;
+  	background-color: pink;
+	text-decoration: underline;
+}
+
+.anotherClass
+{
+	margin-right: 1% !important;
+	float: right;
+}
+#changeStatus{
+	border-radius: 9%;
+	color: black;
+  	font-size: 1em;	
+  	width: 10.4%;
+  	border: none;	
+  	height: 44px;
+  	background-color: pink;
+}
+.orderHistoryBtn{
+	border-radius: 9%;
+	color: black;
+  	font-size: 1em;	
+  	width: 10.4%;
+  	border: none;	
+  	height: 44px;
+  	background-color: pink;
 }

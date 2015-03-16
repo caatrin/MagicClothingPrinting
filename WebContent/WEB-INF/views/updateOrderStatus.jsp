@@ -12,11 +12,14 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"/>
-<jsp:include page="/WEB-INF/views/logout.jsp"/>
 
 <div>
-	<a href="/MagicClothingPrinting/adminOrderHistory">Go to Order History </a>
+	<!--<a href="/MagicClothingPrinting/adminOrderHistory">Go to Order History </a>  -->
+	<form action="adminOrderHistory">
+		<input type="submit" value="Order History" class="orderHistoryBtn"/>
+	</form>
 </div>
+
 
 <div id="section">
 	<h1>Update Order Status</h1>

@@ -17,7 +17,6 @@
 			<form action="createCustomerOrder">
 			<input type="submit" value="Create Order" class="createOrderBtn"/>
 			</form>
-			<jsp:include page="/WEB-INF/views/logout.jsp"/>
 		</div>
 		<h1>Customer Order History</h1>
 		<table>

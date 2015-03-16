@@ -10,7 +10,7 @@
 <link rel="stylesheet" href=<c:url value="resources/css/magicclothing.css"/>>
 </head>
 <body>
-<jsp:include page="/WEB-INF/views/header.jsp"/>
+<jsp:include page="/WEB-INF/views/headerWithouLogout.jsp"/>
 
 <div id="section">
 <h1>Sign up with the best online printing service</h1>
