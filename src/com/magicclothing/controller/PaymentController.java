@@ -1,6 +1,7 @@
 package com.magicclothing.controller;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -12,9 +13,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.magicclothing.OrderStatus;
+import com.magicclothing.domain.ItemOrder;
 import com.magicclothing.domain.Order;
 import com.magicclothing.domain.Payment;
 import com.magicclothing.domain.Person;
@@ -38,11 +41,26 @@ public class PaymentController {
 	 * @return
 	 */
 	@RequestMapping(value = "/displayPayment", method = RequestMethod.GET)
-	public String displayPayment( @ModelAttribute("newPayment") Payment paymentInfo, Model model) {
+	public String displayPayment(@ModelAttribute("newPayment") Payment paymentInfo, Model model) {
 		//Long id = ((Person) model.asMap().get("person")).getPersonId();
 		//orderService.getAll(id);
 		model.addAttribute("order", model.asMap().get("orderSaved"));
 		
+		return "payment";
+	}
+	
+	@RequestMapping(value = "/payOrder", method = RequestMethod.GET)
+	public String displaySavedOrderPayment(@ModelAttribute("newPayment") Payment paymentInfo, 
+			@RequestParam Long orderId, Model model) {
+		Order order = orderService.get(orderId);
+		Double orderTotal = 0.0;
+		List<ItemOrder> itemsFromOrder = order.getListOfItemOrders();
+		for(int i= 0; i< itemsFromOrder.size();i++){
+			orderTotal += order.getListOfItemOrders().get(i).getTotalPrice();
+		}
+		order.setOrderTotal(orderTotal);
+		System.out.println("order total is: " + order.getOrderTotal());
+		model.addAttribute("order", order);
 		return "payment";
 	}
 	
