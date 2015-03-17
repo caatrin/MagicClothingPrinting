@@ -10,6 +10,11 @@ import org.springframework.stereotype.Repository;
 import com.magicclothing.domain.Item;
 import com.magicclothing.domain.ItemOrder;
 
+/**
+ * 
+ * @author MVC Unicorns
+ *
+ */
 @Repository
 public interface ItemOrderRepository extends CrudRepository<ItemOrder, Long>{
 	

@@ -5,6 +5,12 @@ import java.util.List;
 
 import com.magicclothing.domain.Order;
 
+/**
+ * Services to retrieve the information
+ * of the orders from the DB
+ * @author MVC Unicorns
+ *
+ */
 public interface OrderService {
 	
 	public List<Order> getAll();

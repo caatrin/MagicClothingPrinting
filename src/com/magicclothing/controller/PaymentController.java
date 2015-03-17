@@ -31,6 +31,12 @@ public class PaymentController {
 	@Autowired
 	PaymentService paymentService;
 	
+	/**
+	 * Displays the view for processing the payment
+	 * @param paymentInfo
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/displayPayment", method = RequestMethod.GET)
 	public String displayPayment( @ModelAttribute("newPayment") Payment paymentInfo, Model model) {
 		//Long id = ((Person) model.asMap().get("person")).getPersonId();
@@ -40,6 +46,13 @@ public class PaymentController {
 		return "payment";
 	}
 	
+	/**
+	 * Change the status from Pending to Processing on an order after saving the payment in the db
+	 * @param payment
+	 * @param bindingResult
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/payment", method = RequestMethod.POST)
 	public String getPayment(@Valid @ModelAttribute("newPayment") Payment payment, BindingResult bindingResult,
 			Model model) {

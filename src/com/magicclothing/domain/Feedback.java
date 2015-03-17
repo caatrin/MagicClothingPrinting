@@ -10,6 +10,11 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+/**
+ * Feedback domain
+ * @author MVC Unicorns
+ *
+ */
 @Entity
 @Table(schema="magicclothingprinting")
 public class Feedback {

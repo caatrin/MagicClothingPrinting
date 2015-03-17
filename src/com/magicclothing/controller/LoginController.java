@@ -2,9 +2,13 @@ package com.magicclothing.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -17,6 +21,8 @@ import com.magicclothing.domain.Person;
 import com.magicclothing.service.ItemService;
 import com.magicclothing.service.OrderService;
 import com.magicclothing.service.PersonService;
+import com.magicclothing.validator.LoginValidator;
+import com.magicclothing.validator.PasswordValidator;
 
 @Controller
 @SessionAttributes(value={"person", "valid"})
@@ -29,6 +35,8 @@ public class LoginController {
 	ItemService itemService;
 	@Autowired
 	OrderService orderService;
+	@Autowired
+	LoginValidator loginValidator;
 	
 	@RequestMapping(value = "/displaylogin", method = RequestMethod.GET)
 	public String displayLogin() {
@@ -36,14 +44,18 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value = "/customerOrder", method = RequestMethod.POST)
-	public String loginIntoSystem(Person loginPerson, Model model) throws Exception{
+	public String loginIntoSystem(@ModelAttribute("loginCustomer") Person loginPerson, Model model, BindingResult bindingResult) throws Exception{
 		
 		Person person = personService.findBy(loginPerson.getEmail());
 		
+		loginValidator.validate(loginPerson, bindingResult);
 		
-		if(person == null || !person.getPassword().equals(loginPerson.getPassword())) {		
-			throw new RuntimeException("Username or Password is invalid");
-		} 
+		if(bindingResult.hasErrors()){
+			return "login";
+		}
+//		if(person == null || !person.getPassword().equals(loginPerson.getPassword())) {		
+//			throw new RuntimeException("Username or Password is invalid");
+//		} 
 		
 		//admin login validation
 		Person admin = personService.getAdmin();

@@ -8,6 +8,11 @@ import org.springframework.stereotype.Repository;
 
 import com.magicclothing.domain.Payment;
 
+/**
+ * CRUD for all the payments in the DB
+ * @author MVC Unicorns
+ *
+ */
 @Repository
 public interface PaymentRepository extends CrudRepository<Payment, Long>{
 	

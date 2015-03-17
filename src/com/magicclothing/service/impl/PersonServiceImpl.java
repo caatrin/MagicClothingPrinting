@@ -11,6 +11,11 @@ import com.magicclothing.domain.Person;
 import com.magicclothing.repository.PersonRepository;
 import com.magicclothing.service.PersonService;
 
+/**
+ * Implementation of each one of the services
+ * @author MVC Unicorns
+ *
+ */
 @Service
 @Transactional
 public class PersonServiceImpl implements PersonService{

@@ -14,7 +14,7 @@
 
 <div id="section">
 <h1>Log in</h1>
-<form action = "customerOrder" method="post" class="loginFormCss">
+<form:form modelAttribute = "loginCustomer" action="customerOrder"  class="loginFormCss">
 	<fieldset>
 		<legend>Log in</legend>
 		<p>
@@ -26,12 +26,14 @@
 			<input id="password" name="password" type="password" class="loginpropertyPassword"/>
 		</p>
 		</fieldset>
-	
+		<p>
+		<form:errors path="*" cssStyle="color : red;"/>
+		</p>
 	<p id="buttons">
              <input id="loginBtn" type="submit" value="Log in"  />
         </p>
 
-</form>
+</form:form>
 </div>
 
 <jsp:include page="/WEB-INF/views/footer.jsp"/>

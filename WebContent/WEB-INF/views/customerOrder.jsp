@@ -89,7 +89,7 @@
 </div>	
 	<div id="customerSection">		
 		<form action="saveOrder" method="post" class="customerOrderBtn">	
-			<input type="submit" value="Save Order" class="customerBtn"/>
+			<input type="submit" value="Save Order" class="customerBtn1"/>
 		</form>
 		<form action="proceedPayment" method="get" class="customerOrderBtn">	
 			<input type="submit" value="Proceed Payment" class="customerBtn"/>

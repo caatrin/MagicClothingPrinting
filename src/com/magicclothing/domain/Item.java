@@ -7,8 +7,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
 
+/**
+ * Products where the service is offer
+ * @author MVC Unicorns
+ *
+ */
 @Entity
 @Table(schema="magicclothingprinting")
 public class Item implements Serializable{

@@ -10,6 +10,11 @@ import javax.persistence.Table;
 
 import org.springframework.web.multipart.MultipartFile;
 
+/**
+ * List of items from a customer order
+ * @author MVC Unicorns
+ *
+ */
 @Entity
 @Table(schema="magicclothingprinting")
 public class ItemOrder {

@@ -17,6 +17,11 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
+/**
+ * Order domain
+ * @author MVC Unicorns
+ *
+ */
 @Entity
 @Table(schema="magicclothingprinting")
 public class Order {

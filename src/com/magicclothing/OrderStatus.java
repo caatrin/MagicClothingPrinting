@@ -2,6 +2,11 @@ package com.magicclothing;
 
 import java.util.List;
 
+/**
+ * Status options
+ * @author MVC Unicorns
+ *
+ */
 public enum OrderStatus {
 	
 	PENDING ("Pending"),

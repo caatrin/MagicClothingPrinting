@@ -26,7 +26,7 @@
 				<th>Total</th>
 				<th>Status</th>
 				<th>payment</th>
-				<th>Feedback</th>
+				<!-- <th>Feedback</th> -->
 			</tr>
 			<c:forEach var="order" items="${personOrders}">
 				<tr>
@@ -34,7 +34,7 @@
 					<td>160</td>
 					<td>${order.status}</td>
 					<td>payment</td>
-					<td>Feedback</td>
+					<!-- <td>Feedback</td> -->
 				</tr>
 			</c:forEach>
 

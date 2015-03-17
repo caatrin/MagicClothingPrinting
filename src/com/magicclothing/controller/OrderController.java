@@ -5,12 +5,13 @@ import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,6 +31,7 @@ import com.magicclothing.domain.Person;
 import com.magicclothing.service.ItemOrderService;
 import com.magicclothing.service.ItemService;
 import com.magicclothing.service.OrderService;
+import com.magicclothing.validator.AddItemValidator;
 
 @Controller
 @SessionAttributes(value={"person", "valid"})
@@ -43,9 +45,18 @@ public class OrderController {
 	@Autowired
 	OrderService orderService;
 	
+	@Autowired
+	AddItemValidator addItemValidator;
+	
 	private List<ItemOrder> listOfItemOrders = new ArrayList<ItemOrder>(); 
 	
 	private Date timeStamp = new Date();
+	
+	/**
+	 * Search for the customer orders
+	 * @param model
+	 * @return customerOrder.jsp
+	 */
 	
 	@RequestMapping(value = "/customerOrder", method = RequestMethod.GET)
 	public String getCustomerOrder(Model model) {
@@ -53,20 +64,45 @@ public class OrderController {
 		model.addAttribute("listOfItemOrders", listOfItemOrders);
 		return "customerOrder";
 	}
+	
+	/**
+	 * 
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/createCustomerOrder", method = RequestMethod.GET)
 	public String createCustomerOrder(Model model){
 		initItemOrder(model);
 		return "customerOrder";
 	}
 	
+	/**
+	 * Add Items to the dropdown box in the form
+	 * @param model
+	 */
 	private void initItemOrder(Model model) {
 		List<Item> listOfItems = itemService.getAll();
 		model.addAttribute("listOfItems", listOfItems);
 		model.addAttribute("itemOrder", new ItemOrder());
 	}
 	
+	/**
+	 * Adds item selected from the customer to the final order
+	 * @param itemOrder
+	 * @param model
+	 * @param request
+	 * @return in the same view customerOrder.jsp
+	 */
 	@RequestMapping(value = "/addItemOrder", method = RequestMethod.POST)
-	public String addItemOrder(@ModelAttribute ItemOrder itemOrder, Model model, HttpServletRequest request) {
+	public String addItemOrder(@Valid @ModelAttribute ItemOrder itemOrder, Model model, 
+			HttpServletRequest request, BindingResult bindingResult) {
+		
+		AddItemValidator addItemValidator = new AddItemValidator();
+		addItemValidator.validate(itemOrder, bindingResult);
+		if (bindingResult.hasErrors()) {
+			return "customerOrder";
+		}
+		
 		itemOrder.setTotalPrice(itemOrder.getUnits() * itemOrder.getItem().getPrice());
 		Item item = itemService.findBy(itemOrder.getItem().getName());
 		itemOrder.setItem(item);
@@ -88,12 +124,23 @@ public class OrderController {
 		return "redirect:/customerOrder";
 	}
 	
+	/**
+	 * Save the final order in the DB
+	 * @param model
+	 * @return customerOrderHistory.jsp
+	 */
 	@RequestMapping(value="/saveOrder", method = RequestMethod.POST)
 	public String saveOrder(Model model) {
 		setAndSaveOrder(model);
 		return "redirect:/customerOrderHistory";
 	}
 	
+	/**
+	 * Save the final order and proceed to payment
+	 * @param model
+	 * @param redirectAttributes
+	 * @return 
+	 */
 	@RequestMapping(value="/proceedPayment", method = RequestMethod.GET)
 	public String proceedPayment(Model model, RedirectAttributes redirectAttributes ) {
 		Order orderSaved = setAndSaveOrder(model);
@@ -111,6 +158,11 @@ public class OrderController {
 		return "redirect:/displayPayment";
 	}
 	
+	/**
+	 * 
+	 * @param model
+	 * @return
+	 */
 	private Order setAndSaveOrder(Model model){
 		String email = ((Person) model.asMap().get("person")).getEmail();
 		Order order = new Order();
@@ -144,6 +196,11 @@ public class OrderController {
 		return "customerOrderHistory";
 	}
 	
+	/**
+	 * If admin login, display all the orders created in the db
+	 * @param model
+	 * @return adminOrderHistory.jsp
+	 */
 	@RequestMapping(value = "/adminOrderHistory", method = RequestMethod.GET)
 	public String displayAdminOrderHistory(Model model) {
 		List<Order> listOfOrders = orderService.getAll();
@@ -151,6 +208,12 @@ public class OrderController {
 		return "adminOrderHistory";
 	}
 	
+	/**
+	 * Function to display the view for changing the status on an order depending on the business logic
+	 * @param orderId
+	 * @param model
+	 * @return updateOrderStatus.jsp
+	 */
 	@RequestMapping(value = "/updateOrderStatus", method = RequestMethod.GET)
 	public String displayUpdateOrderStatus(@RequestParam Long orderId, Model model) {
 		Order order = orderService.get(orderId);
@@ -159,6 +222,12 @@ public class OrderController {
 		return "updateOrderStatus";
 	}
 	
+	/**
+	 * Change the status on an order
+	 * @param orderId
+	 * @param status
+	 * @param model
+	 */
 	@RequestMapping(value = "/orderId/{orderId}/changeStatus/{status}", method = RequestMethod.PUT)
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
 	public void changeStatus(@PathVariable Long orderId, @PathVariable String status, Model model) {
@@ -166,7 +235,5 @@ public class OrderController {
 		order.setStatus(status);
 		orderService.save(order);
 	}
-	
-	
 
 }

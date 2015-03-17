@@ -17,11 +17,25 @@ import com.magicclothing.domain.Feedback;
 
 @Controller
 public class FeedbackController {
+	
+	/**
+	 * Display the feedback view
+	 * @param feedback
+	 * @return feedback.jsp
+	 */
 
 	@RequestMapping(value="/feedback", method = RequestMethod.GET)
 	public String getFeedbackPage(@ModelAttribute("newFeedback") Feedback feedback) {
 		return "feedback";
 	}
+	
+	/**
+	 * Save the feedback gave it from the customer
+	 * @param feedback
+	 * @param bindingResult
+	 * @param model
+	 * @return customerOrderHistory.jsp
+	 */
 
 	@RequestMapping(value="/giveFeedback", method = RequestMethod.POST)
 	public String saveFeedback(@Valid @ModelAttribute("newFeedback") Feedback feedback,
@@ -38,11 +52,11 @@ public class FeedbackController {
 		}
 
 
-		// create customer
+		// save feedback into the DB
 
 		model.addAttribute("feedback", feedback);
 
-		return "index";
+		return "customerOrderHistory";
 	}
 
 }

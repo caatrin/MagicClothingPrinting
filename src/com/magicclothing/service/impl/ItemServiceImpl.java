@@ -10,6 +10,11 @@ import com.magicclothing.domain.Item;
 import com.magicclothing.repository.ItemRepository;
 import com.magicclothing.service.ItemService;
 
+/**
+ * Implementation of each one of the services
+ * @author MVC Unicorns
+ *
+ */
 @Service
 @Transactional
 public class ItemServiceImpl implements ItemService {

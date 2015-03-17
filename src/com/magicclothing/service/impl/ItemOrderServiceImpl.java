@@ -12,6 +12,11 @@ import com.magicclothing.repository.ItemOrderRepository;
 import com.magicclothing.repository.ItemRepository;
 import com.magicclothing.service.ItemOrderService;
 
+/**
+ * Implementation of each one of the services
+ * @author MVC Unicorns
+ *
+ */
 @Service
 @Transactional
 public class ItemOrderServiceImpl implements ItemOrderService {

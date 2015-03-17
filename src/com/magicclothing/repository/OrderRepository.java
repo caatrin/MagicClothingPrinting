@@ -10,6 +10,11 @@ import org.springframework.stereotype.Repository;
 
 import com.magicclothing.domain.Order;
 
+/**
+ * CRUD for all the customer by id and/or date 
+ * @author MVC Unicorns
+ *
+ */
 @Repository
 public interface OrderRepository extends CrudRepository<Order, Long> {
 	

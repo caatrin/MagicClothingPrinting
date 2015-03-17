@@ -16,21 +16,41 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.magicclothing.domain.Customer;
 import com.magicclothing.service.PersonService;
+import com.magicclothing.validator.PasswordValidator;
 
 @Controller("/customer")
 public class SignupController {
 
 	@Autowired
 	PersonService customerService;
+	
+	@Autowired
+	private PasswordValidator passwordValidator;
 
+	/**
+	 * displays the view for signup
+	 * @param customer
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(value = "/displaysignup", method = RequestMethod.GET)
 	public String displaySignup(@ModelAttribute("newCustomer") Customer customer) throws Exception{
 		return "signup";
 	}
 
+	/**
+	 * creates a customer in the DB
+	 * @param customer
+	 * @param bindingResult
+	 * @param model
+	 * @return login.jsp
+	 */
 	@RequestMapping(value = "/signup")
 	public String getSignup(@Valid @ModelAttribute("newCustomer") Customer customer, 
-			BindingResult bindingResult, Model model, Customer confirmPassword, Customer password) {
+			BindingResult bindingResult, Model model) {
+		
+		PasswordValidator passwordValidator= new PasswordValidator();
+		passwordValidator.validate(customer, bindingResult);
 		if (bindingResult.hasErrors()) {
 			return "signup";
 		}
@@ -42,12 +62,11 @@ public class SignupController {
 		}
 
 		// create customer
-		if(!password.getPassword().equals(confirmPassword.getConfirmPassword())){
-			throw new RuntimeException("Password and Confirm Password are invalid");
-		}
+//		if(!password.getPassword().equals(confirmPassword.getConfirmPassword())){
+//			throw new RuntimeException("Password and Confirm Password are invalid");
+//		}
 		customerService.save(customer);
 		model.addAttribute("customer", customer);
 		return "login";
 	}
-
 }

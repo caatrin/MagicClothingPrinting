@@ -234,9 +234,19 @@ caption{
 	margin-top: 5%;
 	margin-right: 6%;
 	width: 40%;
-	background-color: pink;
+	/* background-color: pink; */
 }
 .customerBtn{
+	border-radius: 9%;
+	color: black;
+  	font-size: 1em;	
+  	width: 86%;
+  	border: none;
+  	height: 44px;
+  	background-color: pink;
+  	
+}
+.customerBtn1{
 	border-radius: 9%;
 	color: black;
   	font-size: 1em;	

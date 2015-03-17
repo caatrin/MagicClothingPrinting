@@ -14,6 +14,11 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
+/**
+ * Payment domain
+ * @author MVC Unicorns
+ *
+ */
 @Entity
 @Table(schema="magicclothingprinting")
 public class Payment implements Serializable{

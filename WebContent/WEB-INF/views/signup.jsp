@@ -79,7 +79,7 @@
 			<form:input id="password" path="password" type="password" class="propertyClassPass"/>
 			
 			<div>
- 				<form:errors path="password" cssStyle="color : red;" /> 
+ 				<form:errors path="password" cssStyle="color : #EF004C;" /> 
  			</div>
 		</p>		
 		<p>

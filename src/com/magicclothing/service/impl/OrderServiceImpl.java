@@ -13,6 +13,11 @@ import com.magicclothing.repository.PersonRepository;
 import com.magicclothing.repository.OrderRepository;
 import com.magicclothing.service.OrderService;
 
+/**
+ * Implementation of each one of the services
+ * @author MVC Unicorns
+ *
+ */
 @Service
 @Transactional
 public class OrderServiceImpl implements OrderService {

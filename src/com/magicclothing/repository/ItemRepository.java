@@ -8,6 +8,11 @@ import org.springframework.stereotype.Repository;
 
 import com.magicclothing.domain.Item;
 
+/**
+ * CRUD for all the items created in the DB
+ * @author MVC Unicorns
+ *
+ */
 @Repository
 public interface ItemRepository extends CrudRepository<Item, Long> {
 	

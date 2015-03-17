@@ -9,6 +9,12 @@ import org.springframework.stereotype.Repository;
 import com.magicclothing.domain.Customer;
 import com.magicclothing.domain.Person;
 
+/**
+ * CRUD for all the user in the DB, customer and
+ * Admin information
+ * @author MVC Unicorns
+ *
+ */
 @Repository
 public interface PersonRepository extends CrudRepository<Person, Long> {
 	

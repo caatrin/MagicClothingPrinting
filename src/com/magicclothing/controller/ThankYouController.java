@@ -13,6 +13,10 @@ public class ThankYouController {
 		return "redirect:/thankyou";
 	}
 	
+	/**
+	 * displays the thank you view
+	 * @return thankyou.jsp
+	 */
 	@RequestMapping(value = "/thankyou", method = RequestMethod.GET)
 	public String displayStatus() {
 		return "thankyou";

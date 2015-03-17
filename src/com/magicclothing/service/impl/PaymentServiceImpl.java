@@ -13,6 +13,11 @@ import com.magicclothing.repository.OrderRepository;
 import com.magicclothing.repository.PaymentRepository;
 import com.magicclothing.service.PaymentService;
 
+/**
+ * Implementation of each one of the services
+ * @author MVC Unicorns
+ *
+ */
 @Service
 @Transactional
 public class PaymentServiceImpl implements PaymentService {

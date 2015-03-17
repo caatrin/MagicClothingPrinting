@@ -8,6 +8,11 @@ import org.springframework.stereotype.Repository;
 
 import com.magicclothing.domain.Feedback;
 
+/**
+ * CRUD for the all the feedbacks save in the DB
+ * @author MVC Unicorns
+ *
+ */
 @Repository
 public interface FeedbackRepository extends CrudRepository<Feedback, Long> {
 	

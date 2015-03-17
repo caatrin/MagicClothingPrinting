@@ -1,8 +1,14 @@
 package com.magicclothing.domain;
 
 import javax.persistence.DiscriminatorValue;
+
 import javax.persistence.Entity;
-import javax.persistence.Table;
+
+/**
+ * Admin domain
+ * @author MVC Unicorns
+ *
+ */
 
 @Entity
 @DiscriminatorValue("Staff")
