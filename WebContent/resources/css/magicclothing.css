@@ -224,6 +224,16 @@ caption{
   margin-left: 29%;	
   background-color: pink;
 }
+#payBtn{
+  border: none;
+  width: 25%;
+  height: 30px;
+  border-radius: 9%;
+  color: black;
+  font-size: 0.9em;
+  margin-left: 20%;	
+  background-color: pink;
+}
 #customerSection{
 	display: flex;
   	margin: 6% 0% 3% 36%;

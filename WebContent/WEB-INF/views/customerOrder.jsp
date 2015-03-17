@@ -25,7 +25,7 @@
 	
 	
 	<div id="items">
-			<form:form action="addItemOrder" method="post" modelAttribute="itemOrder">
+			<form:form action="addItemOrder" method="post" modelAttribute="itemOrder" enctype="multipart/form-data">
 				<p>
 					<label for="name">Select Item: </label>
 					
@@ -53,7 +53,7 @@
 				</p>
 				<p>
 					<label for="image">Upload Image: </label>
-					<form:input id="image" name="image" type="file" path="image"/>
+					<form:input id="image" name="image" type="file" path="imageFile"/>
 				</p>
 				
 				<p id="buttons">
