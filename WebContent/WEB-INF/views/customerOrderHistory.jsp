@@ -6,8 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Magic Printing Clothing</title>
-<link rel="stylesheet"
-	href=<c:url value="resources/css/magicclothing.css"/>>
+<link rel="stylesheet" href=<c:url value="resources/css/magicclothing.css"/>>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/header.jsp" />
@@ -25,7 +24,7 @@
 				<th>Order Id</th>
 				<th>Total</th>
 				<th>Status</th>
-				<th>payment</th>
+				<th>Payment</th>
 				<th>Feedback</th>
 			</tr>
 			<c:forEach var="order" items="${personOrders}">
@@ -33,7 +32,14 @@
 					<td>${order.orderId}</td>
 					<td>${order.orderTotal}</td>
 					<td>${order.status}</td>
-					<td>payment</td>
+					<c:choose>
+            			<c:when test="${order.status =='Pending'}">
+                		<td><button id="payBtn">Pay</button> </td>
+           				</c:when>
+            			<c:otherwise>
+                		<td>Order Paid</td>
+            			</c:otherwise>
+        			</c:choose>
 					<td>Feedback</td>
 				</tr>
 			</c:forEach>
