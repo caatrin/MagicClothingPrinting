@@ -34,7 +34,7 @@
 					<td>${order.status}</td>
 					<c:choose>
             			<c:when test="${order.status =='Pending'}">
-                		<td><button id="payBtn">Pay</button> </td>
+                		<td><button id="payBtn"><a href="/MagicClothingPrinting/payOrder?orderId=${order.orderId}">Pay</a></button> </td>
            				</c:when>
             			<c:otherwise>
                 		<td>Order Paid</td>
