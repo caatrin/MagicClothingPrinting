@@ -15,8 +15,10 @@
 <h1>Thank you for your order!</h1>
 
 <h2>Our staff will contact you soon to confirm pick up!</h2>
+<div id="thankyouCss">
+<a  href="/MagicClothingPrinting/customerOrderHistory">Go to your Order History</a>
+</div>
 
-<a href="/MagicClothingPrinting/customerOrderHistory">Go to your Order History</a>
 </div>
 
 <jsp:include page="/WEB-INF/views/footer.jsp"/>
