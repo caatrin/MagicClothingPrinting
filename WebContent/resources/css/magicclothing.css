@@ -330,3 +330,14 @@ caption{
   	height: 44px;
   	background-color: pink;
 }
+#collage{
+	  margin-left: 24%;
+}
+#blockquoteCss{
+	padding-top: 13%;
+  	font-size: 23pt;
+}
+#blockquoteCss2{
+  font-size: 18pt;
+  text-align: center;	
+}

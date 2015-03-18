@@ -23,9 +23,11 @@ public class AddItemValidator implements Validator{
 	@Override
 	public void validate(Object target, Errors errors) {
 		 ItemOrder io = (ItemOrder) target;
+		 
+		 System.out.println("da orden " + io.getUnits());
 		
-		 if(io == null){
-			errors.reject("addItem", "com.magicclothing.validator.AddItemValidator.message"); 
+		 if(io.getUnits() == null ){
+			errors.rejectValue("units", "com.magicclothing.validator.AddItemValidator.message"); 
 		 }
 		
 	}

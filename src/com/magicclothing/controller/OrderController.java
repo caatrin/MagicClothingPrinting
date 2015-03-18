@@ -100,12 +100,14 @@ public class OrderController {
 	 */
 	@RequestMapping(value = "/addItemOrder", method = RequestMethod.POST)
 	public String addItemOrder(@Valid @ModelAttribute ItemOrder itemOrder, Model model, 
-			HttpServletRequest request, BindingResult bindingResult) {
+			HttpServletRequest request, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 		
 		AddItemValidator addItemValidator = new AddItemValidator();
 		addItemValidator.validate(itemOrder, bindingResult);
+//		redirectAttributes.addFlashAttribute("itemOrder", itemOrder);
 		if (bindingResult.hasErrors()) {
-			return "customerOrder";
+			return "redirect:/customerOrder";
+//			return "customerOrder";
 		}
 		
 		itemOrder.setTotalPrice(itemOrder.getUnits() * itemOrder.getItem().getPrice());
@@ -113,12 +115,11 @@ public class OrderController {
 		itemOrder.setItem(item);
 		
 		//upload image
-		MultipartFile image = itemOrder.getImageFile();
-		
+		MultipartFile image = itemOrder.getImageFile();		
 		String rootDirectory = request.getSession().getServletContext().getRealPath("/");
-		System.out.println("root directory is " + rootDirectory);
+//		System.out.println("root directory is " + rootDirectory);
 		if(image!=null && !image.isEmpty()){
-			System.out.println("hello from if");
+//			System.out.println("hello from if");
 			try{
 				DateFormat date = new SimpleDateFormat("MM_dd_YY_hhmm");
 				image.transferTo(new File(rootDirectory+"\\resources\\img\\customerImg\\" + 
@@ -186,8 +187,6 @@ public class OrderController {
 		listOfItemOrders = new ArrayList<ItemOrder>();
 		return order;
 	}
-	
-	
 	/**
 	 * Respond to ajax call and return a json with item object
 	 * @param name
@@ -208,8 +207,7 @@ public class OrderController {
 				orderTotal += io.getTotalPrice();
 				order.setOrderTotal(orderTotal);
 			}
-		}
-		
+		}		
 //			System.out.println(personOrders.size());
 		model.addAttribute("personOrders", personOrders);
 		return "customerOrderHistory";

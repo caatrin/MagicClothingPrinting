@@ -32,11 +32,7 @@
 				
 					<form:select id="name" name="item" path="item.name">
 						<form:option value="select" >Please select item</form:option>
-						<form:options items="${listOfItems}" itemLabel="name" itemValue= "name"/>
-<%-- 						<c:forEach var="item" items="${listOfItems}"> --%>
-<%-- 							<form:options value="${item.name}">${item.name}</form:options> --%>
-<%-- 						</c:forEach> --%>
-						
+						<form:options items="${listOfItems}" itemLabel="name" itemValue= "name"/>						
 					</form:select>
 				</p>
 				<p>
@@ -59,6 +55,9 @@
 				<p id="buttons">
 					<input id="addItem" type="submit" value="Add Item" class="addItemBtn">
 				</p>
+				<div>
+					<form:errors path="*" cssStyle="color : red"/>
+				</div>
 			</form:form>
 		</div>
 	
